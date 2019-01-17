@@ -20,6 +20,7 @@ public class Data_Importer {
 		if(args.length== 0) {
 			// Load the Example Data
 			try{
+				
 				/** C:\Users\Jason\Documents\mus.txt
 				 *  Get Directory of class so then I can set the auto example loader
 				 *  Source: https://stackoverflow.com/questions/3153337/how-to-get-current-working-directory-in-java
@@ -45,6 +46,18 @@ public class Data_Importer {
                 		System.out.println("Basic Information End");
                 		System.out.println();
                 	}
+                	// The Education Section
+                	else if(range.equals("educationInformationStart")) {
+                		range=br.readLine();
+                		System.out.println("Education Start");
+                		while(range!= null && !range.equals("educationInformationEnd")) {
+                			System.out.println(range);
+                			range=br.readLine();
+                		}
+                		
+                		System.out.println("Education End");
+                		System.out.println();
+                	}
                 	else System.out.println(range);
                 	range=br.readLine();
                 }
@@ -59,4 +72,6 @@ public class Data_Importer {
 		}
 	}
 
+	
+	
 }
