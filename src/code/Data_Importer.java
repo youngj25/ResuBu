@@ -16,6 +16,7 @@ public class Data_Importer {
 
 	public static void main(String[] args) {
 		User_Account user = new User_Account();
+		Education edu = new Education();
 		// System.out.println("Hello World");
 		
 		// If the argument array is empty
@@ -39,7 +40,7 @@ public class Data_Importer {
                 	// The Basic Information Section
                 	if(range.equals("basicInformationStart")) {
                 		range=br.readLine();
-                		System.out.println("Loading Basic Information");
+                		System.out.print("Loading Basic Information...");
                 		while(range!= null && !range.equals("basicInformationEnd")) {
                 			// First Name
                 			if(range.indexOf("firstName:")==0) {
@@ -86,18 +87,17 @@ public class Data_Importer {
                 		}
                 		
                 		System.out.println("Basic Information Loaded");
-                		System.out.println();
                 	}
                 	// The Education Section
                 	else if(range.equals("educationInformationStart")) {
                 		range=br.readLine();
-                		System.out.println("Education Start");
+                		System.out.println("Loading Education Information...");
                 		while(range!= null && !range.equals("educationInformationEnd")) {
                 			System.out.println(range);
                 			range=br.readLine();
                 		}
                 		
-                		System.out.println("Education End");
+                		System.out.println("Education Information Loaded");
                 		System.out.println();
                 	}
                 	else System.out.println(range);
