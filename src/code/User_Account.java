@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class User_Account {
 	private static String firstName, middleName, lastName; // Names
-	private static String address1, address2, city, state, zip; // Address
+	private static String address, city, state, zip; // Address
 	private static ArrayList <String> phone, email, webLinks; // Various data 
 	
 	/**
@@ -21,7 +21,7 @@ public class User_Account {
 	 */
 	public User_Account() {
 		firstName=middleName=lastName = null;
-		address1=address2=city=state=zip=null;
+		address=city=state=zip=null;
 		phone=email=webLinks= new ArrayList <String>(); 
 	}
 	
@@ -32,10 +32,119 @@ public class User_Account {
 	 */
 	public void setFirstName(String s) {
 		firstName = s;	
+	}	
+
+	 /* Set Middle Name
+	 * Sets the User's Middle Name to the Specified String s
+	 * @param s New Middle Name
+	 */
+	public void setMiddleName(String s) {
+		middleName = s;		
 	}
 	
+	/**
+	 * Get Middle Name
+	 * Returns the User's Middle Name
+	 * @return The Middle Name
+	 */
+	public String getMiddleName() {
+		return middleName;		
+	}	
+	
+	 /* Set Last Name
+	 * Sets the User's Last Name to the Specified String s
+	 * @param s New Last Name
+	 */
+	public void setLastName(String s) {
+		lastName = s;		
+	}
+	
+	/**
+	 * Get Last Name
+	 * Returns the User's Last Name
+	 * @return The Last Name
+	 */
+	public String getLastName() {
+		return lastName;		
+	}	
 	
 	
+	
+	
+
+	/**
+	 * Set Address
+	 * Sets the User's Address
+	 * @param s
+	 */
+	public void setAddress(String s) {
+		// Still deciding how to do the address to incorporate apartments
+		address = s;		
+	}
+	
+	/**
+	 * Get Address
+	 * Returns the User's Address
+	 * @return The Address
+	 */
+	public String getAddress() {
+		// Still deciding how to do the address to incorporate apartments
+		return address;		
+	}	
+
+	/**
+	 * Set City
+	 * Sets the User's City
+	 * @param s
+	 */
+	public void setCity(String s) {
+		state = s;		
+	}
+	
+	/**
+	 * Get City
+	 * Returns the User's City Address
+	 * @return The City Address
+	 */
+	public String getCity() {
+		return city;		
+	}
+	
+	/**
+	 * Set State
+	 * Sets the User's State
+	 * @param s
+	 */
+	public void setState(String s) {
+		state = s;		
+	}
+	
+	/**
+	 * Get State
+	 * Returns the User's State Address
+	 * @return The State Address
+	 */
+	public String getState() {
+		return state;		
+	}	
+	
+	/**
+	 * Set Zip
+	 * Sets the User's Zip Code to the specified String variable
+	 * @param s The Specified Zip Code
+	 */
+	public void setZip(String s) {
+		zip = s;	
+	}
+	
+	/**
+	 * Get Zip
+	 * Returns the user's Zip Code
+	 * @return The Zip Code
+	 */
+	public String getZip() {
+		return zip;
+	}
 	
 	/* Add Phone Number
 	 * This adds the String s to the ArrayList of Phone
@@ -47,6 +156,46 @@ public class User_Account {
 		phone.add(s);		
 	}
 	
+	/**
+	 * Get Phone Type
+	 * Returns the first instance of the specified Phone type or null
+	 * @param s Specified Phone Type
+	 * @return the 
+	 */
+	public String getPhoneType(String s) {
+		// Needs to be further developed 
+		return null;
+	}
+
+	/**
+	 * Get Phone Number
+	 * Returns the nth Phone Number
+	 * @param n The position of the wanted Phone Number
+	 * @return The specified Phone Number or null
+	 */
+	public String getPhoneNumber(int n) {
+		if(phone.size()>n && n>=0)
+			return phone.get(n);
+		else
+			return null;		
+	}
+	
+	/**
+	 * Get Phone Size
+	 * Returns the Size of the Phone ArrayList
+	 * @return size of the Phone ArrayList
+	 */
+	public Integer getPhoneSize() {
+		return phone.size();		
+	}
+	
+	/**
+	 * Returns the entire Phone ArrayList
+	 * @return The entire Phone ArrayList
+	 */
+	public ArrayList<String> getPhone(){
+		return phone;		
+	}
 	
 	
 	/**

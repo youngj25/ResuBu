@@ -16,7 +16,7 @@ public class Data_Importer {
 
 	public static void main(String[] args) {
 		User_Account user = new User_Account();
-		System.out.println("Hello World");
+		// System.out.println("Hello World");
 		
 		// If the argument array is empty
 		if(args.length== 0) {
@@ -39,14 +39,38 @@ public class Data_Importer {
                 	// The Basic Information Section
                 	if(range.equals("basicInformationStart")) {
                 		range=br.readLine();
-                		System.out.println("Basic Information Start");
+                		System.out.println("Loading Basic Information");
                 		while(range!= null && !range.equals("basicInformationEnd")) {
                 			// First Name
                 			if(range.indexOf("firstName:")==0) {
                 				user.setFirstName(range.substring(10));
                 			}
+                			// Middle Name
+                			else if(range.indexOf("middleName:")==0) {
+                				user.setMiddleName(range.substring(11));
+                			}
+                			// Last Name
+                			else if(range.indexOf("lastName:")==0) {
+                				user.setLastName(range.substring(9));
+                			}                			
+                			// Address
+                			else if(range.indexOf("address:")==0) {
+                				user.setState(range.substring(8));
+                			}
+                			// City
+                			else if(range.indexOf("city:")==0) {
+                				user.setState(range.substring(5));
+                			}
+                			// State
+                			else if(range.indexOf("state:")==0) {
+                				user.setState(range.substring(6));
+                			}
+                			// Zip Code
+                			else if(range.indexOf("zip:")==0) {
+                				user.setZip(range.substring(4));
+                			}
                 			// Phone
-                			else if(range.indexOf("phone:")==0) {
+                			else if(range.indexOf("phone(")==0) {
                 				user.addPhoneNumber(range);
                 			}
                 			// Email Address
@@ -61,7 +85,7 @@ public class Data_Importer {
                 			range=br.readLine();
                 		}
                 		
-                		System.out.println("Basic Information End");
+                		System.out.println("Basic Information Loaded");
                 		System.out.println();
                 	}
                 	// The Education Section
