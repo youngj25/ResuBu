@@ -14,6 +14,7 @@ import java.io.IOException;
 public class Data_Importer {
 
 	public static void main(String[] args) {
+		User_Account user = new User_Account();
 		System.out.println("Hello World");
 		
 		// If the argument array is empty
