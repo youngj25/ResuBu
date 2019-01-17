@@ -33,7 +33,19 @@ public class Data_Importer {
                 BufferedReader br = new BufferedReader(fr);
                 String range=br.readLine();
                 while(range != null) {
-                	System.out.println(range);
+                	// The Basic Information Section
+                	if(range.equals("basicInformationStart")) {
+                		range=br.readLine();
+                		System.out.println("Basic Information Start");
+                		while(range!= null && !range.equals("basicInformationEnd")) {
+                			System.out.println(range);
+                			range=br.readLine();
+                		}
+                		
+                		System.out.println("Basic Information End");
+                		System.out.println();
+                	}
+                	else System.out.println(range);
                 	range=br.readLine();
                 }
                 //Close the stream
