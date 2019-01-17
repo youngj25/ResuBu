@@ -3,6 +3,7 @@ import java.io.*;
 import java.io.FileReader;      // both needed
 import java.io.BufferedReader;  // for line input
 import java.io.IOException;
+import java.lang.NullPointerException;
 
 /**
  * Data Importer
@@ -40,7 +41,23 @@ public class Data_Importer {
                 		range=br.readLine();
                 		System.out.println("Basic Information Start");
                 		while(range!= null && !range.equals("basicInformationEnd")) {
-                			System.out.println(range);
+                			// First Name
+                			if(range.indexOf("firstName:")==0) {
+                				user.setFirstName(range.substring(10));
+                			}
+                			// Phone
+                			else if(range.indexOf("phone:")==0) {
+                				user.addPhoneNumber(range);
+                			}
+                			// Email Address
+                			else if(range.indexOf("email:")==0) {
+                				user.addEmail(range.substring(6));
+                			}
+                			// Web Links
+                			else if(range.indexOf("webLink#")==0) {
+                				user.addWebLink(range.substring(range.indexOf(":")+1));
+                			}
+                			else System.out.println(range);
                 			range=br.readLine();
                 		}
                 		
@@ -67,9 +84,12 @@ public class Data_Importer {
                 br.close();
 			}
 			catch(IOException ioe) {
-				System.out.println("OOPS.....");
-				
+				System.out.println(ioe);
 			}
+			catch(NullPointerException ioe) {
+				System.out.println(ioe);
+			}
+			
 		}
 	}
 

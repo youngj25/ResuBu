@@ -12,9 +12,17 @@ public class User_Account {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		System.out.println("Users Account Main");
+	}
+	
+	/**
+	 * Constructor
+	 * Presets all of the data to the default settings
+	 */
+	public User_Account() {
 		firstName=middleName=lastName = null;
 		address1=address2=city=state=zip=null;
-		phone=email=webLinks=null;
+		phone=email=webLinks= new ArrayList <String>(); 
 	}
 	
 	/**
@@ -29,6 +37,18 @@ public class User_Account {
 	
 	
 	
+	/* Add Phone Number
+	 * This adds the String s to the ArrayList of Phone
+	 * @param s The given Phone Number
+	 */
+	public void addPhoneNumber(String s){
+		// Needs to be processed further with a Phone Class
+		// In order to get different types (Mobile/Work...etc)
+		phone.add(s);		
+	}
+	
+	
+	
 	/**
 	 * Add Email
 	 * This adds the String s to the ArrayList of Emails
@@ -38,6 +58,36 @@ public class User_Account {
 		email.add(s);		
 	}
 	
+	/**
+	 * Get Email
+	 * Gets the Specified nth email address or returns null
+	 * @param n The position of the wanted Email Address
+	 * @return The specified email address or null 
+	 */
+	public String getEmail(int n) {
+		if(email.size()>n && n>=0)
+			return email.get(n);
+		else
+			return null;		
+	}
+	
+	 /*
+	 * Get Email Size
+	 * Returns the Size of the email ArrayList
+	 * @return The Size of the Email ArrayList
+	 */
+	public Integer getEmailSize() {
+		return email.size();		
+	}
+	
+	/**
+	 * Get Email
+	 * Returns the Entire Email Array
+	 * @return email Returns the entire email Array
+	 */
+	public ArrayList<String> getEmail(){
+		return email;		
+	}
 	
 	/**
 	 * Add Web Link
@@ -52,7 +102,7 @@ public class User_Account {
 	 * Get Web Link
 	 * A request is made for a return of WebLink n,
 	 * and if the Weblink doesn't exist return null;
-	 * @param n
+	 * @param n The position of the wanted webLink
 	 * @return Weblink String or null
 	 */
 	public String getWebLink(int n) {
@@ -72,6 +122,15 @@ public class User_Account {
 	}
 	
 	/**
+	 * Get Web Links
+	 * Returns the Entire Web Link Array
+	 * @return webLinks Returns the entire webLinks Array
+	 */
+	public ArrayList<String> getWebLink(){
+		return webLinks;		
+	}
+	
+	/**
 	 * to String
 	 * Return this String when the user object is printed
 	 * @return The user object data
@@ -80,3 +139,4 @@ public class User_Account {
 		return firstName;
 	}
 }
+
