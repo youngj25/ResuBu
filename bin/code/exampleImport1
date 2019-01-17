@@ -13,7 +13,7 @@ webLink#2:Github.foreverYoung
 webLink#3:foreverYoung.Site
 basicInformationEnd
 educationInformationStart
-education#1
+educationStart#1
 title:Southern Connecticut State University
 city:New Haven
 state:Connecticut
@@ -29,8 +29,9 @@ course#1:Operating Systems
 course#2:Database Management
 course#3:Computer Graphics
 course#4:Calculus II
+educationEnd#1
 educationInformationEnd
-work#1
+workStart#1
 company: Coca-Cola
 position#1
 Sales Clerk
@@ -41,7 +42,8 @@ endYear:2016
 description#1:Provide Customers with support
 description#2:Operated the Cash Registers 
 description#3:Restock/Managed Inventory
-work#2
+workEnd#1
+workStart#2
 company:Elm Street Real-Estate Agency
 position#1
 Real-Estate Agent
@@ -50,3 +52,4 @@ startYear:2017
 endMonth:3
 endYear:2017
 description#1:Provide Customers with support
+workEnd#2

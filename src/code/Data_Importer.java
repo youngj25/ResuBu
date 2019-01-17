@@ -90,63 +90,70 @@ public class Data_Importer {
                 	// The Education Section
                 	else if(range.equals("educationInformationStart")) {
                 		range=br.readLine();
-                		System.out.println("Loading Education Information...");
+                		System.out.print("Loading Education Information...");
                 		while(range!= null && !range.equals("educationInformationEnd")) {
-                			//Education edu = new Education();
-                			// Title
-                			if(range.indexOf("title:")==0) {
-                				edu.setTitle(range.substring(6));
+                			// Filling out the education information
+                			if(range.indexOf("educationStart#")==0) {
+                				range=br.readLine();
+                				Education edu = new Education();
+                				while(range!= null && !range.equals("educationInformationEnd")&& range.indexOf("educationClose#")!=0) {
+		                			// Title
+		                			if(range.indexOf("title:")==0) {
+		                				edu.setTitle(range.substring(6));
+		                			}
+		                			// City
+		                			else if(range.indexOf("city:")==0) {
+		                				edu.setCity(range.substring(5));
+		                			}
+		                			// State
+		                			else if(range.indexOf("state:")==0) {
+		                				edu.setState(range.substring(6));
+		                			}
+		                			// Start Month
+		                			else if(range.indexOf("startMonth:")==0) {
+		                				edu.setStartMonth(range.substring(11));
+		                			}
+		                			// Start Year
+		                			else if(range.indexOf("startYear:")==0) {
+		                				edu.setStartYear(range.substring(10));
+		                			}
+		                			// End Month
+		                			else if(range.indexOf("endMonth:")==0) {
+		                				edu.setStartMonth(range.substring(9));
+		                			}
+		                			// End Year
+		                			else if(range.indexOf("endYear:")==0) {
+		                				edu.setStartYear(range.substring(8));
+		                			}                			
+		                			// Degree
+		                			else if(range.indexOf("degree:")==0) {
+		                				edu.setDegree(range.substring(7));
+		                			}
+		                			// Major
+		                			else if(range.indexOf("major:")==0) {
+		                				edu.setMajor(range.substring(6));
+		                			}
+		                			// Minor
+		                			else if(range.indexOf("minor:")==0) {
+		                				edu.setMinor(range.substring(6));
+		                			}
+		                			// GPA - Grade Point Average
+		                			else if(range.indexOf("gpa:")==0) {
+		                				edu.setGPA(range.substring(4));
+		                			}
+		                			// Courses
+		                			else if(range.indexOf("course#")==0) {
+		                				edu.addCourses(range);
+		                			}
+		                			else System.out.println(range);
+		                			range=br.readLine();
+                				}
+                				user.addEducation(edu);
+                				range=br.readLine();
                 			}
-                			// City
-                			else if(range.indexOf("city:")==0) {
-                				edu.setCity(range.substring(5));
-                			}
-                			// State
-                			else if(range.indexOf("state:")==0) {
-                				edu.setState(range.substring(6));
-                			}
-                			// Start Month
-                			else if(range.indexOf("startMonth:")==0) {
-                				edu.setStartMonth(range.substring(11));
-                			}
-                			// Start Year
-                			else if(range.indexOf("startYear:")==0) {
-                				edu.setStartYear(range.substring(10));
-                			}
-                			// End Month
-                			else if(range.indexOf("endMonth:")==0) {
-                				edu.setStartMonth(range.substring(9));
-                			}
-                			// End Year
-                			else if(range.indexOf("endYear:")==0) {
-                				edu.setStartYear(range.substring(8));
-                			}                			
-                			// Degree
-                			else if(range.indexOf("degree:")==0) {
-                				edu.setDegree(range.substring(7));
-                			}
-                			// Major
-                			else if(range.indexOf("major:")==0) {
-                				edu.setMajor(range.substring(6));
-                			}
-                			// Minor
-                			else if(range.indexOf("minor:")==0) {
-                				edu.setMinor(range.substring(6));
-                			}
-                			// GPA - Grade Point Average
-                			else if(range.indexOf("gpa:")==0) {
-                				edu.setGPA(range.substring(4));
-                			}
-                			// Courses
-                			else if(range.indexOf("course#")==0) {
-                				edu.addCourses(range);
-                			}
-                			else System.out.println(range);
-                			range=br.readLine();
                 		}
                 		
                 		System.out.println("Education Information Loaded");
-                		System.out.println();
                 	}
                 	else System.out.println(range);
                 	range=br.readLine();
@@ -154,6 +161,8 @@ public class Data_Importer {
                 //Close the stream
                 fr.close();
                 br.close();
+
+
 			}
 			catch(IOException ioe) {
 				System.out.println(ioe);
