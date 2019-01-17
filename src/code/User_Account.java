@@ -7,16 +7,7 @@ public class User_Account {
 	private static String address, city, state, zip; // Address
 	private static ArrayList <String> phone, email, webLinks; // Various data 
 	private static ArrayList <Education> edu;
-	
-	
-	/**
-	 * Main
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		System.out.println("Users Account Main");
-	}
-	
+		
 	/**
 	 * Constructor
 	 * Presets all of the data to the default settings

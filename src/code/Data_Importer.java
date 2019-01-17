@@ -96,7 +96,7 @@ public class Data_Importer {
                 			if(range.indexOf("educationStart#")==0) {
                 				range=br.readLine();
                 				Education edu = new Education();
-                				while(range!= null && !range.equals("educationInformationEnd")&& range.indexOf("educationClose#")!=0) {
+                				while(range!= null && !range.equals("educationInformationEnd")&& range.indexOf("educationEnd#")!=0) {
 		                			// Title
 		                			if(range.indexOf("title:")==0) {
 		                				edu.setTitle(range.substring(6));
