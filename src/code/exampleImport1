@@ -14,7 +14,9 @@ webLink#3:foreverYoung.Site
 basicInformationEnd
 educationInformationStart
 education#1
-Southern Connecticut State University
+title:Southern Connecticut State University
+city:New Haven
+state:Connecticut
 startMonth:8
 startYear:2014
 endMonth:5
@@ -22,14 +24,14 @@ endYear:2018
 degree:Bachelor of Sciences
 major:Computer Science
 minor: null
-GPA: 3.27
-Course#1:Operating Systems
-Course#2:Database Management
-Course#3:Computer Graphics
-Course#4:Calculus II
+gpa: 3.27
+course#1:Operating Systems
+course#2:Database Management
+course#3:Computer Graphics
+course#4:Calculus II
 educationInformationEnd
 work#1
-Company: Coca-Cola
+company: Coca-Cola
 position#1
 Sales Clerk
 startMonth:3
@@ -40,7 +42,7 @@ description#1:Provide Customers with support
 description#2:Operated the Cash Registers 
 description#3:Restock/Managed Inventory
 work#2
-Company:Elm Street Real-Estate Agency
+company:Elm Street Real-Estate Agency
 position#1
 Real-Estate Agent
 startMonth:1

@@ -6,6 +6,8 @@ public class User_Account {
 	private static String firstName, middleName, lastName; // Names
 	private static String address, city, state, zip; // Address
 	private static ArrayList <String> phone, email, webLinks; // Various data 
+	private static ArrayList <Education> edu;
+	
 	
 	/**
 	 * Main
@@ -23,6 +25,7 @@ public class User_Account {
 		firstName=middleName=lastName = null;
 		address=city=state=zip=null;
 		phone=email=webLinks= new ArrayList <String>(); 
+		edu = new ArrayList <Education>();
 	}
 	
 	/**
@@ -67,10 +70,6 @@ public class User_Account {
 	public String getLastName() {
 		return lastName;		
 	}	
-	
-	
-	
-	
 
 	/**
 	 * Set Address
@@ -277,6 +276,46 @@ public class User_Account {
 	 */
 	public ArrayList<String> getWebLink(){
 		return webLinks;		
+	}
+	
+	/**
+	 * Add Education
+	 * Add educations to the User's Education Array
+	 * @param e
+	 */
+	public void addEducation(Education e) {
+		edu.add(e);		
+	}
+	
+	/**
+	 * Get Education
+	 * Returns a Education based on the n value
+	 * @param n The specified education
+	 * @return The nth Education or null
+	 */
+	public Education getEducation(int n) {
+		if(edu.size()>n && n>=0)
+			return edu.get(n);
+		else
+			return null;
+	}
+	
+	/**
+	 * Get Education Sized
+	 * Returns the size of the Education Array
+	 * @return The size of the Education Array
+	 */
+	public Integer getEducationSize(){
+		return edu.size();		
+	}
+	
+	/**
+	 * Get Education
+	 * Returns the entire Education Array
+	 * @return The Entire Education Array
+	 */
+	public ArrayList<Education> getEducation(){
+		return edu;		
 	}
 	
 	/**
