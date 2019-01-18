@@ -108,6 +108,7 @@ public class GUI extends Frame implements Printable, ActionListener{
             else if("Load Example".equals(command)){
             	Data_Importer imports = new Data_Importer();
             	user = imports.loadUserData("Example");
+            	repaint();
             }
             else if("Print".equals(command)){
                 PrinterJob job = PrinterJob.getPrinterJob();
@@ -174,6 +175,24 @@ public class GUI extends Frame implements Printable, ActionListener{
               g.drawString(jay,ww-100, wh-20);
               g.setColor(Color.BLACK);
             }
+            else if("Load Example".equals(command)){
+                int x = ww/4;
+                int y = (int)(wh*.4);
+                
+                g.setColor(Color.BLACK);
+                g.drawString(user.getFirstName()+" "+user.getLastName(), (int)(ww*0.45),100);
+                
+                for(int z=0;z<Jabout.length;z++){
+                    if(z==1)g.setColor(Color.RED);
+                    else if(z==2)g.setColor(Color.MAGENTA);
+                    else if(z==3)g.setColor(Color.BLUE);
+                    else if(z==4)g.setColor(Color.GREEN);
+                    g.drawString(Jabout[z], x, y+z*20);
+                  }
+                g.setColor(Color.BLUE);
+                g.drawString(jay,ww-100, wh-20);
+                g.setColor(Color.BLACK);
+              }
             else if("Blank".equals(command)|| "Upload Default".equals(command)||"Print".equals(command)){
                 /*
                  g.drawRect(50+(x%apr)*105,85+(x/apr)*35,75,20);

@@ -30,7 +30,17 @@ public class User_Account {
 		firstName = s;	
 	}	
 
-	 /* Set Middle Name
+	/**
+	 * Get First Name
+	 * Returns the User's First Name
+	 * @return The First Name
+	 */
+	public String getFirstName() {
+		return firstName;		
+	}	
+	
+	 /**
+	 *  Set Middle Name
 	 * Sets the User's Middle Name to the Specified String s
 	 * @param s New Middle Name
 	 */
@@ -47,7 +57,8 @@ public class User_Account {
 		return middleName;		
 	}	
 	
-	 /* Set Last Name
+	 /**
+	 * Set Last Name
 	 * Sets the User's Last Name to the Specified String s
 	 * @param s New Last Name
 	 */
@@ -63,7 +74,7 @@ public class User_Account {
 	public String getLastName() {
 		return lastName;		
 	}	
-
+	
 	/**
 	 * Set Address
 	 * Sets the User's Address
