@@ -4,9 +4,9 @@ import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.awt.Font.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 import java.io.IOException;
 import java.awt.print.*;
 
@@ -17,9 +17,7 @@ public class GUI extends Frame implements Printable, ActionListener{
 	private static final long serialVersionUID = 1L;
     private static String []Jabout={"A program that will display the battlefield for future game development"};
     private static String command = "";
-    private static String ans="",jay="Jason A. Young";
-    private static ArrayList <Integer> answer=new ArrayList<Integer>();
-    private static ArrayList <String> ar=new ArrayList <String>();
+    private static String jay="Jason A. Young";
     private static  Frame frame;
     private static User_Account user = new User_Account();
     
@@ -35,7 +33,7 @@ public class GUI extends Frame implements Printable, ActionListener{
     }
     
 	public GUI() {
-        setTitle("Battlefield Display");
+        setTitle("ResuBu");
         
         MenuBar mb = new MenuBar();
         setMenuBar(mb);
@@ -175,41 +173,32 @@ public class GUI extends Frame implements Printable, ActionListener{
               g.drawString(jay,ww-100, wh-20);
               g.setColor(Color.BLACK);
             }
+            // Load Example
             else if("Load Example".equals(command)){
-                int x = ww/4;
-                int y = (int)(wh*.4);
-                
+            	
+            	int stringSize = (user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName()).length();
+            	System.out.println(stringSize);
+            	stringSize= stringSize*25/3;
+            	System.out.println(stringSize);
+            	
+                Font k=new Font(g.getFont().getName(),g.getFont().getStyle(),25);
+                g.setFont(k);
                 g.setColor(Color.BLACK);
-                g.drawString(user.getFirstName()+" "+user.getLastName(), (int)(ww*0.45),100);
+                g.drawString(user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName(), (int)(ww/2-stringSize),100);
+                k=new Font(g.getFont().getName(),g.getFont().getStyle(),12);
+                g.setFont(k);
                 
-                for(int z=0;z<Jabout.length;z++){
-                    if(z==1)g.setColor(Color.RED);
-                    else if(z==2)g.setColor(Color.MAGENTA);
-                    else if(z==3)g.setColor(Color.BLUE);
-                    else if(z==4)g.setColor(Color.GREEN);
-                    g.drawString(Jabout[z], x, y+z*20);
-                  }
+                
                 g.setColor(Color.BLUE);
                 g.drawString(jay,ww-100, wh-20);
                 g.setColor(Color.BLACK);
-              }
-            else if("Blank".equals(command)|| "Upload Default".equals(command)||"Print".equals(command)){
-                /*
-                 g.drawRect(50+(x%apr)*105,85+(x/apr)*35,75,20);
-                 g.setColor(Color.CYAN);
-                 g.fillRect(50+(x%apr)*105,85+(x/apr)*35,75,20);
-                 g.drawString(abc[x],55+(x%apr)*105,100+(x/apr)*35);
-                 g.drawLine(125+(x%apr)*105,95+(x/apr)*35,155+(x%apr)*105,95+(x/apr)*35);
-                 g.fillPolygon(Xa,Ya,Xa.length);
-                */
+            }
+            else if("Print".equals(command)){
                 
-                if("Upload Default".equals(command)){
-                    
-                }
                     
                 g.setColor(Color.BLACK);
                 
-                }    
+            }    
             
                 
         }
