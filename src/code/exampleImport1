@@ -1,17 +1,22 @@
+basicInformationStart
 firstName:Forever
 middleName:Eva
 lastName:Young
 address:101 Wayne Street
 city:Gotham
 state:Connecticut
-phone:203-555-5555
+zip:06515
+phone():203-555-5555
 email:foreverYoung@youth.com
 webLink#1:Linkedin.foreverYoung
 webLink#2:Github.foreverYoung
 webLink#3:foreverYoung.Site
 basicInformationEnd
-education#1
-Southern Connecticut State University
+educationInformationStart
+educationStart#1
+title:Southern Connecticut State University
+city:New Haven
+state:Connecticut
 startMonth:8
 startYear:2014
 endMonth:5
@@ -19,16 +24,18 @@ endYear:2018
 degree:Bachelor of Sciences
 major:Computer Science
 minor: null
-GPA: 3.27
-Course#1:Operating Systems
-Course#2:Database Management
-Course#3:Computer Graphics
-Course#4:Calculus II
+gpa: 3.27
+course#1:Operating Systems
+course#2:Database Management
+course#3:Computer Graphics
+course#4:Calculus II
+educationEnd#1
 educationInformationEnd
-work#1
-Company: Coca-Cola
-position#1
-Sales Clerk
+workInformationStart
+workStart#1
+company: Coca-Cola
+positionStart#1
+position:Sales Clerk
 startMonth:3
 startYear:2014
 endMonth:11
@@ -36,12 +43,17 @@ endYear:2016
 description#1:Provide Customers with support
 description#2:Operated the Cash Registers 
 description#3:Restock/Managed Inventory
-work#2
-Company:Elm Street Real-Estate Agency
-position#1
-Real-Estate Agent
+positionEnd#1
+workEnd#1
+workStart#2
+company:Elm Street Real-Estate Agency
+positionStart#1
+position:Real-Estate Agent
 startMonth:1
 startYear:2017
 endMonth:3
 endYear:2017
 description#1:Provide Customers with support
+positionEnd#1
+workEnd#2
+workInformationEnd
