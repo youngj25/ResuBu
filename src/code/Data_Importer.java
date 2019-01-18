@@ -13,13 +13,13 @@ import java.lang.NullPointerException;
  * file imports and managements. 
  */
 public class Data_Importer {
-
-	public static void main(String[] args) {
+	
+	public User_Account loadUserData (String args) {
 		User_Account user = new User_Account();
 		// System.out.println("Hello World");
 		
 		// If the argument array is empty
-		if(args.length== 0) {
+		if(args.equals("Example")) {
 			// Load the Example Data
 			try{
 				
@@ -227,7 +227,7 @@ public class Data_Importer {
                 fr.close();
                 br.close();
 
-
+                return user;
 			}
 			catch(IOException ioe) {
 				System.out.println(ioe);
@@ -235,8 +235,8 @@ public class Data_Importer {
 			catch(NullPointerException ioe) {
 				System.out.println(ioe);
 			}
-			
 		}
+		return user;
 	}
 
 	
