@@ -155,6 +155,71 @@ public class Data_Importer {
                 		
                 		System.out.println("Education Information Loaded");
                 	}
+                	// The Work Section
+                	else if(range.equals("workInformationStart")) {
+                		range=br.readLine();
+                		System.out.print("Loading Work Information...");
+                		while(range!= null && !range.equals("workInformationEnd")) {
+                			// Filling out the education information
+                			if(range.indexOf("workStart#")==0) {
+                				range=br.readLine();
+                				Work work = new Work();
+                				while(range!= null && !range.equals("workInformationEnd")&& range.indexOf("workEnd#")!=0) {
+		                			// Company
+		                			if(range.indexOf("company:")==0) {
+		                				work.setCompanyName(range.substring(8));
+		                			}
+		                			// City
+		                			else if(range.indexOf("city:")==0) {
+		                				work.setCompanyName(range.substring(5));
+		                			}
+		                			// State
+		                			else if(range.indexOf("state:")==0) {
+		                				work.setCompanyName(range.substring(6));
+		                			}
+		                			// Position Info
+		                			else if(range.indexOf("positionStart#")==0) {
+		                				range=br.readLine();
+		                				Positions pos = new Positions();
+		                				while(range!= null && !range.equals("workInformationEnd")&& range.indexOf("workEnd#")!=0 && range.indexOf("positionEnd#")!=0) {
+		                					// Position Title
+		                					if(range.indexOf("position:")==0) {
+		                						pos.setPositionTitle(range.substring(9));
+				                			}
+		                					// Start Month
+		                					else if(range.indexOf("startMonth:")==0) {
+		                						pos.setStartMonth(range.substring(11));
+				                			}
+		                					// Start Year
+		                					else if(range.indexOf("startYear:")==0) {
+		                						pos.setStartYear(range.substring(10));
+				                			}
+		                					// End Month
+		                					else if(range.indexOf("endMonth:")==0) {
+		                						pos.setStartMonth(range.substring(9));
+				                			}
+		                					// End Year
+		                					else if(range.indexOf("endYear:")==0) {
+		                						pos.setStartYear(range.substring(8));
+				                			}
+		                					// Description
+		                					else if(range.indexOf("description#")==0) {
+		                						pos.addDescription(range.substring(range.indexOf(":")+1));
+				                			}
+		                					else System.out.println(range);
+		                					range=br.readLine();
+		                				}
+		                				work.addPosition(pos);
+		                			}
+		                			else System.out.println(range);
+		                			range=br.readLine();
+                				}
+                				user.addWork(work);
+                			}
+                			range=br.readLine();
+                		}
+                		System.out.println("Work Information Loaded");
+                	}
                 	else System.out.println(range);
                 	range=br.readLine();
                 }

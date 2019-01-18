@@ -6,7 +6,8 @@ public class User_Account {
 	private static String firstName, middleName, lastName; // Names
 	private static String address, city, state, zip; // Address
 	private static ArrayList <String> phone, email, webLinks; // Various data 
-	private static ArrayList <Education> edu;
+	private static ArrayList <Education> edu; // Education Experience
+	private static ArrayList <Work> work; // Work Experience
 		
 	/**
 	 * Constructor
@@ -17,6 +18,7 @@ public class User_Account {
 		address=city=state=zip=null;
 		phone=email=webLinks= new ArrayList <String>(); 
 		edu = new ArrayList <Education>();
+		work = new ArrayList <Work>();
 	}
 	
 	/**
@@ -307,6 +309,46 @@ public class User_Account {
 	 */
 	public ArrayList<Education> getEducation(){
 		return edu;		
+	}	
+
+	/**
+	 * Add Work
+	 * Add Work to the User's Work Array
+	 * @param w
+	 */
+	public void addWork(Work w) {
+		work.add(w);		
+	}
+	
+	/**
+	 * Get Work
+	 * Returns Work based on the n value
+	 * @param n The specified education
+	 * @return The nth Work or null
+	 */
+	public Work getWork(int n) {
+		if(work.size()>n && n>=0)
+			return work.get(n);
+		else
+			return null;
+	}
+	
+	/**
+	 * Get Work Sized
+	 * Returns the size of the Work Array
+	 * @return The size of the Work Array
+	 */
+	public Integer getWorkSize(){
+		return work.size();		
+	}
+	
+	/**
+	 * Get Work
+	 * Returns the entire Work Array
+	 * @return The Entire Work Array
+	 */
+	public ArrayList<Work> getWork(){
+		return work;		
 	}
 	
 	/**
