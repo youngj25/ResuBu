@@ -20,7 +20,7 @@ public class GUI extends Frame implements Printable, ActionListener{
     private static String jay="Jason A. Young";
     private static Frame frame;
     private static User_Account user = new User_Account();
-    //private static colorScheme;
+    private static colorScheme[] scheme = new colorScheme[20];
     
     
     /**
