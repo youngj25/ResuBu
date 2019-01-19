@@ -5,8 +5,8 @@ import java.awt.Font;
 
 public class colorScheme {
 	private static String colorSchemeName;
-	private static Font heading1, heading2, heading3, heading4;
-	private static Font paragraph1, paragraph2, paragraph3;
+	private static Fonts heading1, heading2, heading3, heading4;
+	private static Fonts paragraph1, paragraph2, paragraph3;
 	private static Color backgroundColor;
 	
 	/**
@@ -19,19 +19,16 @@ public class colorScheme {
 		colorSchemeName = s;
 		
 		// Preset Headings
-		heading1 = new Font("Dialog", 0,28);
-		heading2 = new Font("Dialog", 0,24);
-		heading3 = new Font("Dialog", 0,20);
-		heading4 = new Font("Dialog", 0,16);
+		heading1 = new Fonts(new Font("Dialog", 0, 28));
+		heading2 = new Fonts(new Font("Dialog", 0, 24));
+		heading3 = new Fonts(new Font("Dialog", 0, 20));
+		heading4 = new Fonts(new Font("Dialog", 0, 16));
 		
 		// Preset Paragraph
-		paragraph1 = new Font("Dialog", 0,14);
-		paragraph2 = new Font("Dialog", 0,12);
-		paragraph3 = new Font("Dialog", 0,10);
-		
-		//new Font(g.getFont().getName(),g.getFont().getStyle(),25);
-        
-		
+		paragraph1 = new Fonts(new Font("Dialog", 0, 14));
+		paragraph2 = new Fonts(new Font("Dialog", 0, 12));
+		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
+
 		// Background
 		backgroundColor = new Color(255, 255, 255);
 	}
@@ -56,39 +53,39 @@ public class colorScheme {
 	
 
 	/**
-	 * Set Heading Font
+	 * Set Heading Fonts
 	 * Sets the Font's name, style and size
 	 * @param headingNo Which Heading font to set
 	 * @param fontName The Font name
 	 * @param fontStyle The Font style
 	 * @param fontSize The Font Size
 	 */
-	public void setHeadingFont(int headingNo, String fontName, int fontStyle, int fontSize){
+	public void setHeadingFonts(int headingNo, String fontName, int fontStyle, int fontSize){
 		// Sets Heading 1
 		if(headingNo == 1) {
-			heading1 = new Font(fontName, fontStyle, fontSize);
+			heading1 = new Fonts(new Font(fontName, fontStyle, fontSize));
 		}
 		// Sets Heading 2
 		else if(headingNo == 2) {
-			heading2 = new Font(fontName, fontStyle, fontSize);
+			heading2 = new Fonts(new Font(fontName, fontStyle, fontSize));
 		}
 		// Sets Heading 3
 		else if(headingNo == 3) {
-			heading3 = new Font(fontName, fontStyle, fontSize);
+			heading3 = new Fonts(new Font(fontName, fontStyle, fontSize));
 		}
 		// Sets Heading 4
 		else if(headingNo == 4) {
-			heading4 = new Font(fontName, fontStyle, fontSize);
+			heading4 = new Fonts(new Font(fontName, fontStyle, fontSize));
 		}
 	}
 	
 
 	/**
-	 * Get Heading Font
+	 * Get Heading Fonts
 	 * @param headingNo The number of the wanted paragraph
 	 * @return Returns the specified Heading Font
 	 */
-	public Font getHeadingFont(int headingNo) {
+	public Font getHeadingFonts(int headingNo) {
 		// Sets Heading 1
 		if(headingNo == 1) {
 			return heading1;
@@ -113,34 +110,50 @@ public class colorScheme {
 	
 	
 	/**
-	 * Set Paragraph Font
+	 * Set Paragraph Fonts
 	 * Sets the Font's name, style and size
 	 * @param paragraphNo Which paragraph font to set
 	 * @param fontName The Font name
 	 * @param fontStyle The Font style
 	 * @param fontSize The Font Size
 	 */
-	public void setParagraphFont(int paragraphNo, String fontName, int fontStyle, int fontSize){
+	public void setParagraphFonts(int paragraphNo, String fontName, int fontStyle, int fontSize){
 		// Sets Paragraph 1
 		if(paragraphNo == 1) {
-			paragraph1 = new Font(fontName, fontStyle, fontSize);
+			paragraph1 = new Fonts(new Font(fontName, fontStyle, fontSize));
 		}
 		// Sets Paragraph 2
 		else if(paragraphNo == 2) {
-			paragraph2 = new Font(fontName, fontStyle, fontSize);
+			paragraph2 = new Fonts(new Font(fontName, fontStyle, fontSize));
 		}
 		// Sets paragraph 3
 		else if(paragraphNo == 3) {
-			paragraph3 = new Font(fontName, fontStyle, fontSize);
+			paragraph3 = new Fonts(new Font(fontName, fontStyle, fontSize));
+		}
+	}
+	
+	
+	public void setParagraphColor(int paragraphNo, int R, int G, int B) {
+		// Sets Paragraph 1
+		if(paragraphNo == 1) {
+			paragraph1.setFontColor( R, G, B);
+		}
+		// Sets Paragraph 2
+		else if(paragraphNo == 2) {
+			paragraph2.setFontColor( R, G, B);
+		}
+		// Sets paragraph 3
+		else if(paragraphNo == 3) {
+			paragraph3.setFontColor( R, G, B);
 		}
 	}
 	
 	/**
-	 * Get Paragraph Font
+	 * Get Paragraph Fonts
 	 * @param paragraphNo The number of the wanted paragraph
 	 * @return Returns the specified Paragraph Font
 	 */
-	public Font getParagraphFont(int paragraphNo) {
+	public Font getParagraphFonts(int paragraphNo) {
 		// Sets Paragraph 1
 		if(paragraphNo == 1) {
 			return paragraph1;
@@ -158,6 +171,29 @@ public class colorScheme {
 		return null;
 	}
 	
+
+	/**
+	 * Get Paragraph Color
+	 * @param paragraphNo The number of the wanted paragraph
+	 * @return Returns the specified Paragraph Color
+	 */
+	public Color getParagraphColor(int paragraphNo) {
+		// Sets Paragraph 1
+		if(paragraphNo == 1) {
+			return paragraph1.getFontColor();
+		}
+		// Sets Paragraph 2
+		else if(paragraphNo == 2) {
+			return paragraph2.getFontColor();
+		}
+		// Sets Paragraph 3
+		else if(paragraphNo == 3) {
+			return paragraph3.getFontColor();
+		}
+		
+		// If paragraphNo is incorrect
+		return null;
+	}
 	
 	/**
 	 * Sets the Background Color
@@ -175,5 +211,28 @@ public class colorScheme {
 	 */
 	public Color getBackgroundColor() {
 		return backgroundColor;
+	}
+}
+
+class Fonts extends Font{
+	private static Color fontColor;
+	private static final long serialVersionUID = 1L;
+
+	protected Fonts(Font arg0) {
+		super(arg0);
+		fontColor = new Color(0, 0, 0);
+	}	
+	
+	protected Fonts(Font arg0,int R, int G, int B) {
+		super(arg0);
+		fontColor = new Color(R, G, B);
+	}
+	
+	public void setFontColor(int R, int G, int B) {
+		fontColor = new Color(R, G, B);
+	}
+	
+	public Color getFontColor() {
+		return fontColor;
 	}
 }

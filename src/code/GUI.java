@@ -2,7 +2,6 @@ package code;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.Font;
 import java.util.ArrayList;
 import java.awt.print.*;
 
@@ -30,6 +29,8 @@ public class GUI extends Frame implements Printable, ActionListener{
         frame.setResizable(false);
         frame.setSize(800,700);
         frame.setVisible(true);
+
+        loadColorScheme();
     }
     
 	public GUI() {
@@ -177,21 +178,15 @@ public class GUI extends Frame implements Printable, ActionListener{
             else if("Load Example".equals(command)){
             	
             	int stringSize = (user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName()).length();
-            	// System.out.println(stringSize);
             	stringSize= stringSize*25/3;
-            	// System.out.println(stringSize);
             	
-                Font k=new Font(g.getFont().getName(),g.getFont().getStyle(),25);
-                g.setFont(k);
-                g.setColor(Color.BLACK);
+                g.setFont(scheme.get(0).getHeadingFonts(1));
+                g.setColor(scheme.get(0).getParagraphColor(1));
                 g.drawString(user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName(), (int)(ww/2-stringSize),100);
-                k=new Font(g.getFont().getName(),g.getFont().getStyle(),12);
-                g.setFont(k);
-                System.out.println(g.getFont().getName());
-                System.out.println(g.getFont().getStyle());
-                System.out.println(g.getFont());
+                
+                g.setFont(scheme.get(0).getParagraphFonts(1));
                 g.setColor(Color.BLUE);
-                g.drawString(jay,ww-100, wh-20);
+                g.drawString(jay,ww-150, wh-20);
                 g.setColor(Color.BLACK);
             }
             else if("Print".equals(command)){
@@ -204,9 +199,9 @@ public class GUI extends Frame implements Printable, ActionListener{
                 
     }
 	
-	public void loadColorScheme() {
-		
-		
+	public static void loadColorScheme() {
+		scheme.add(new colorScheme("Default"));
+		frame.setBackground(scheme.get(0).getBackgroundColor());
 	}
 }
 
