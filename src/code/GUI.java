@@ -1,14 +1,14 @@
 package code;
 
-import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
 import java.awt.Font;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.io.IOException;
 import java.awt.print.*;
+
+// import javax.swing.*;
+// import java.io.*;
+// import java.io.IOException;
 
 public class GUI extends Frame implements Printable, ActionListener{
 	/**
@@ -20,9 +20,8 @@ public class GUI extends Frame implements Printable, ActionListener{
     private static String jay="Jason A. Young";
     private static Frame frame;
     private static User_Account user = new User_Account();
-    private static colorScheme[] scheme = new colorScheme[20];
-    
-    
+    private static ArrayList <colorScheme> scheme = new ArrayList <colorScheme>();
+        
     /**
      * creates a Frame
      */    
@@ -203,7 +202,11 @@ public class GUI extends Frame implements Printable, ActionListener{
             }    
             
                 
-        }
+    }
 	
+	public void loadColorScheme() {
+		
+		
+	}
 }
 
