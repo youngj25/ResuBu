@@ -18,8 +18,9 @@ public class GUI extends Frame implements Printable, ActionListener{
     private static String []Jabout={"A program that will display the battlefield for future game development"};
     private static String command = "";
     private static String jay="Jason A. Young";
-    private static  Frame frame;
+    private static Frame frame;
     private static User_Account user = new User_Account();
+    //private static colorScheme;
     
     
     /**
@@ -177,9 +178,9 @@ public class GUI extends Frame implements Printable, ActionListener{
             else if("Load Example".equals(command)){
             	
             	int stringSize = (user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName()).length();
-            	System.out.println(stringSize);
+            	// System.out.println(stringSize);
             	stringSize= stringSize*25/3;
-            	System.out.println(stringSize);
+            	// System.out.println(stringSize);
             	
                 Font k=new Font(g.getFont().getName(),g.getFont().getStyle(),25);
                 g.setFont(k);
@@ -187,8 +188,9 @@ public class GUI extends Frame implements Printable, ActionListener{
                 g.drawString(user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName(), (int)(ww/2-stringSize),100);
                 k=new Font(g.getFont().getName(),g.getFont().getStyle(),12);
                 g.setFont(k);
-                
-                
+                System.out.println(g.getFont().getName());
+                System.out.println(g.getFont().getStyle());
+                System.out.println(g.getFont());
                 g.setColor(Color.BLUE);
                 g.drawString(jay,ww-100, wh-20);
                 g.setColor(Color.BLACK);
