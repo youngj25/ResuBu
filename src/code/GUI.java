@@ -4,7 +4,7 @@ import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.awt.Font.*;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.IOException;
