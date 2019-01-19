@@ -20,7 +20,9 @@ public class GUI extends Frame implements Printable, ActionListener{
     private static Frame frame;
     private static User_Account user = new User_Account();
     private static ArrayList <colorScheme> scheme = new ArrayList <colorScheme>();
-        
+    private static MenuItem Default, colorScheme1, colorScheme2, colorScheme3, colorScheme4, colorScheme5;    
+    private static int menuThemeSelection = 0;
+    
     /**
      * creates a Frame
      */    
@@ -53,6 +55,33 @@ public class GUI extends Frame implements Printable, ActionListener{
         MenuItem miBlank=new MenuItem("Blank");
         miBlank.addActionListener(this);
         fileMenu.add(miBlank);
+        
+        Menu colorSchemeSubMenu=new Menu("Color Schemes");
+        fileMenu.add(colorSchemeSubMenu);
+        
+        Default=new MenuItem("Default");
+        Default.addActionListener(this);
+        colorSchemeSubMenu.add(Default);
+        
+        colorScheme1=new MenuItem("colorScheme1");
+        colorScheme1.addActionListener(this);
+        colorSchemeSubMenu.add(colorScheme1);
+        
+        colorScheme2=new MenuItem("colorScheme2");
+        colorScheme2.addActionListener(this);
+        colorSchemeSubMenu.add(colorScheme2);
+        
+        colorScheme3=new MenuItem("colorScheme3");
+        colorScheme3.addActionListener(this);
+        colorSchemeSubMenu.add(colorScheme3);
+        
+        colorScheme4=new MenuItem("colorScheme4");
+        colorScheme4.addActionListener(this);
+        colorSchemeSubMenu.add(colorScheme4);
+        
+        colorScheme5=new MenuItem("colorScheme5");
+        colorScheme5.addActionListener(this);
+        colorSchemeSubMenu.add(colorScheme5);
         
         MenuItem miExample=new MenuItem("Load Example");
         miExample.addActionListener(this);
@@ -103,6 +132,29 @@ public class GUI extends Frame implements Printable, ActionListener{
             else if("Blank".equals(command)||"Upload Default".equals(command)){
                 
                 repaint();
+            }
+            else if("Default".equals(command)||scheme.get(1).getColorSchemeTitle().equals(command)||scheme.get(2).getColorSchemeTitle().equals(command)){
+            	
+            	if("Default".equals(command))
+            		menuThemeSelection = 0;
+            	else if(scheme.get(1).getColorSchemeTitle().equals(command))
+            		menuThemeSelection = 1;
+            	else if(scheme.get(2).getColorSchemeTitle().equals(command))
+            		menuThemeSelection = 2;
+            	else if(scheme.get(3).getColorSchemeTitle().equals(command))
+            		menuThemeSelection = 3;
+            	else if(scheme.get(4).getColorSchemeTitle().equals(command))
+            		menuThemeSelection = 4;
+            	else if(scheme.get(5).getColorSchemeTitle().equals(command))
+            		menuThemeSelection = 5;
+            		
+            	System.out.println("color Theme Selected");
+            		
+            	frame.setBackground(scheme.get(menuThemeSelection).getBackgroundColor());
+                
+            	
+            	
+            	repaint();
             }
             else if("Load Example".equals(command)){
             	Data_Importer imports = new Data_Importer();
@@ -200,7 +252,35 @@ public class GUI extends Frame implements Printable, ActionListener{
     }
 	
 	public static void loadColorScheme() {
+		menuThemeSelection = 0;
 		scheme.add(new colorScheme("Default"));
+		scheme.add(new colorScheme("Midnight", 20, 20, 60));
+		scheme.add(new colorScheme("Warm", 120, 50, 20));
+		scheme.add(new colorScheme("123", 20, 20, 60));
+		scheme.add(new colorScheme("456", 20, 20, 60));
+		scheme.add(new colorScheme("789", 20, 20, 60));
+		
+		System.out.println(scheme.get(0).getColorSchemeTitle());
+		System.out.println(scheme.get(1).getColorSchemeTitle());
+		System.out.println(scheme.get(2).getColorSchemeTitle());
+		System.out.println(scheme.get(3).getColorSchemeTitle());
+		System.out.println(scheme.size());
+		
+		
+		for(int x=1; x<scheme.size() && x<6; x++) {
+			if(x == 1)
+				colorScheme1.setLabel(scheme.get(x).getColorSchemeTitle());
+			else if(x == 2)
+				colorScheme2.setLabel(scheme.get(x).getColorSchemeTitle());
+			else if(x == 3)
+				colorScheme3.setLabel(scheme.get(x).getColorSchemeTitle());
+			else if(x == 4)
+				colorScheme4.setLabel(scheme.get(x).getColorSchemeTitle());
+			else if(x == 5)
+				colorScheme5.setLabel(scheme.get(x).getColorSchemeTitle());
+			System.out.println(x);
+		}
+		
 		frame.setBackground(scheme.get(0).getBackgroundColor());
 	}
 }

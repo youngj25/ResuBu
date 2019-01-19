@@ -33,6 +33,31 @@ public class colorScheme {
 		backgroundColor = new Color(255, 255, 255);
 	}
 	
+
+	/**
+	 * Color Scheme
+	 * The Color Scheme Constructors
+	 * @param s The Title of the Color Scheme
+	 */
+	public colorScheme(String s, int R, int G, int B) {
+		// Color Scheme Title
+		colorSchemeName = s;
+		
+		// Preset Headings
+		heading1 = new Fonts(new Font("Dialog", 0, 28));
+		heading2 = new Fonts(new Font("Dialog", 0, 24));
+		heading3 = new Fonts(new Font("Dialog", 0, 20));
+		heading4 = new Fonts(new Font("Dialog", 0, 16));
+		
+		// Preset Paragraph
+		paragraph1 = new Fonts(new Font("Dialog", 0, 14));
+		paragraph2 = new Fonts(new Font("Dialog", 0, 12));
+		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
+
+		// Background
+		backgroundColor = new Color(R, G, B);
+	}
+	
 	/**
 	 * Set Color Scheme Title
 	 * Set's the Color Scheme Title with the given String
