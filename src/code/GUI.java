@@ -15,11 +15,10 @@ public class GUI extends Frame implements Printable, ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
     private static String []Jabout={"A program that will display the battlefield for future game development"};
-    private static String command = "";
-    private static String jay="Jason A. Young";
+    private static String command = "", jay="Jason A. Young";
     private static Frame frame;
     private static User_Account user = new User_Account();
-    private static ArrayList <colorScheme> scheme = new ArrayList <colorScheme>();
+    private static ArrayList <colorScheme> scheme;
     private static MenuItem Default, colorScheme1, colorScheme2, colorScheme3, colorScheme4, colorScheme5;    
     private static int menuThemeSelection = 0;
     
@@ -148,7 +147,7 @@ public class GUI extends Frame implements Printable, ActionListener{
             	else if(scheme.get(5).getColorSchemeTitle().equals(command))
             		menuThemeSelection = 5;
             		
-            	System.out.println("color Theme Selected");
+            	System.out.println("color Theme Selected: "+command);
             		
             	frame.setBackground(scheme.get(menuThemeSelection).getBackgroundColor());
                 
@@ -232,39 +231,56 @@ public class GUI extends Frame implements Printable, ActionListener{
             	int stringSize = (user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName()).length();
             	stringSize= stringSize*25/3;
             	
-                g.setFont(scheme.get(0).getHeadingFonts(1));
-                g.setColor(scheme.get(0).getParagraphColor(1));
-                g.drawString(user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName(), (int)(ww/2-stringSize),100);
+               // g.setFont(scheme.get(0).getHeadingFonts(1));
+               // g.setColor(scheme.get(0).getParagraphColor(1));
+               // g.drawString(user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName(), (int)(ww/2-stringSize),100);
                 
-                g.setFont(scheme.get(0).getParagraphFonts(1));
+               // g.setFont(scheme.get(0).getHeadingFonts(3));
+               // g.setColor(scheme.get(0).getParagraphColor(1));
+                g.drawString(user.getWork(0).getCompanyName(), (int)(ww/2-stringSize),450);
+                g.drawString(user.getWork(1).getCompanyName(), (int)(ww/2-stringSize),475);
+                g.drawString(user.getEducation(0).getTitle(), (int)(ww/2-stringSize),500);
+                                
+               // g.setFont(scheme.get(0).getParagraphFonts(1));
                 g.setColor(Color.BLUE);
                 g.drawString(jay,ww-150, wh-20);
                 g.setColor(Color.BLACK);
+                
+                frame.setBackground(scheme.get(0).getBackgroundColor());
             }
             else if("Print".equals(command)){
-                
-                    
                 g.setColor(Color.BLACK);
-                
+
             }    
-            
-                
     }
 	
 	public static void loadColorScheme() {
+		scheme = new ArrayList<colorScheme>();
 		menuThemeSelection = 0;
-		scheme.add(new colorScheme("Default"));
-		scheme.add(new colorScheme("Midnight", 20, 20, 60));
-		scheme.add(new colorScheme("Warm", 120, 50, 20));
-		scheme.add(new colorScheme("123", 20, 20, 60));
-		scheme.add(new colorScheme("456", 20, 20, 60));
-		scheme.add(new colorScheme("789", 20, 20, 60));
+						  
+		colorScheme cat = new colorScheme("Default");
+		scheme.add(cat);
+		colorScheme bat = new colorScheme("Midnight", 20, 120, 60);		
+		scheme.add(bat);
+		scheme.add(new colorScheme());
+		scheme.add(new colorScheme());
+		// scheme.add(new colorScheme("123", 20, 20, 160));
+		// scheme.add(new colorScheme("456", 20, 20, 160));
+		// scheme.add(new colorScheme("789", 20, 20, 160));
 		
-		System.out.println(scheme.get(0).getColorSchemeTitle());
-		System.out.println(scheme.get(1).getColorSchemeTitle());
-		System.out.println(scheme.get(2).getColorSchemeTitle());
-		System.out.println(scheme.get(3).getColorSchemeTitle());
-		System.out.println(scheme.size());
+		scheme.get(0).setColorSchemeTitle("Default");
+		scheme.get(1).setColorSchemeTitle("Midnight");
+		scheme.get(2).setColorSchemeTitle("Dawn");
+		
+		
+		
+		for(int x=0; x<scheme.size(); x++)
+			System.out.println(scheme.get(x).getColorSchemeTitle());
+		// System.out.println(scheme.size());
+		System.out.println("-------------------------------");
+							
+		System.out.println(cat.getColorSchemeTitle());
+		System.out.println(bat.getColorSchemeTitle());
 		
 		
 		for(int x=1; x<scheme.size() && x<6; x++) {
@@ -278,10 +294,25 @@ public class GUI extends Frame implements Printable, ActionListener{
 				colorScheme4.setLabel(scheme.get(x).getColorSchemeTitle());
 			else if(x == 5)
 				colorScheme5.setLabel(scheme.get(x).getColorSchemeTitle());
+			
 			System.out.println(x);
 		}
 		
-		frame.setBackground(scheme.get(0).getBackgroundColor());
+		
+		// frame.setBackground(scheme.get(0).getBackgroundColor());
+		
+		
+		ArrayList<String> list = new ArrayList<String>();
+		list.add(new String("1. Apple"));
+		list.add(new String("2. Banana"));
+		list.add(new String("3. Grape"));
+		list.add(new String("4. Orange"));
+		list.add("5. Pear");
+		list.add("6. Peach");
+		for(int x=0; x<list.size(); x++)
+			System.out.println(list.get(x));
+		
+		
 	}
 }
 

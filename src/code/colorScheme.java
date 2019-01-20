@@ -2,12 +2,48 @@ package code;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.io.Serializable;
 
-public class colorScheme {
+/**
+ * Color Scheme
+ * @author Jason
+ * The defined color scheme set for the display
+ */
+public final class colorScheme extends Object implements Serializable{
+	/**
+	 * Serial Version UID
+	 */
+	private static final long serialVersionUID = 602316359698856322L;
 	private static String colorSchemeName;
 	private static Fonts heading1, heading2, heading3, heading4;
 	private static Fonts paragraph1, paragraph2, paragraph3;
 	private static Color backgroundColor;
+	
+	
+
+	/**
+	 * Color Scheme
+	 * The Color Scheme Constructors
+	 */
+	public colorScheme() {
+		// Color Scheme Title
+		colorSchemeName = "Default";
+		
+		// Preset Headings
+		heading1 = new Fonts(new Font("Dialog", 0, 28));
+		heading2 = new Fonts(new Font("Dialog", 0, 24));
+		heading3 = new Fonts(new Font("Dialog", 0, 20));
+		heading4 = new Fonts(new Font("Dialog", 0, 16));
+		
+		// Preset Paragraph
+		paragraph1 = new Fonts(new Font("Dialog", 0, 14));
+		paragraph2 = new Fonts(new Font("Dialog", 0, 12));
+		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
+
+		// Background
+		backgroundColor = new Color(255, 255, 255);
+	}
+	
 	
 	/**
 	 * Color Scheme
@@ -86,6 +122,7 @@ public class colorScheme {
 	 * @param fontSize The Font Size
 	 */
 	public void setHeadingFonts(int headingNo, String fontName, int fontStyle, int fontSize){
+		
 		// Sets Heading 1
 		if(headingNo == 1) {
 			heading1 = new Fonts(new Font(fontName, fontStyle, fontSize));
@@ -239,6 +276,11 @@ public class colorScheme {
 	}
 }
 
+/**
+ * Fonts Class
+ * @author Jason
+ * Fonts extends Font and adds color option
+ */
 class Fonts extends Font{
 	private static Color fontColor;
 	private static final long serialVersionUID = 1L;
