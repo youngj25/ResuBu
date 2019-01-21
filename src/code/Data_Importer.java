@@ -12,7 +12,7 @@ import java.lang.NullPointerException;
  * The purpose of this class is to handle all of the
  * file imports and managements. 
  */
-public class Data_Importer {
+class Data_Importer {
 	
 	public User_Account loadUserData (String args) {
 		User_Account user = new User_Account();

@@ -2,7 +2,7 @@ package code;
 
 import java.util.ArrayList;
 
-public class Education {
+class Education {
 	private static String title, city, state;
 	private static String degree,major, minor;
 	private static double gpa; // Grade Point Average

@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Holds the detailed information regarding the company of employment
  * @author Jason
  */
-public class Work {
+class Work {
 	private static String company, city, state;
 	private static int startMonth,startYear,endMonth,endYear;
 	private static ArrayList <Positions> positions; // Courses 

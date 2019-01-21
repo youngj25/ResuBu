@@ -2,7 +2,7 @@ package code;
 
 import java.util.ArrayList;
 
-public class User_Account {
+class User_Account {
 	private static String firstName, middleName, lastName; // Names
 	private static String address, city, state, zip; // Address
 	private static ArrayList <String> phone, email, webLinks; // Various data 
@@ -199,8 +199,7 @@ public class User_Account {
 	public ArrayList<String> getPhone(){
 		return phone;		
 	}
-	
-	
+		
 	/**
 	 * Add Email
 	 * This adds the String s to the ArrayList of Emails

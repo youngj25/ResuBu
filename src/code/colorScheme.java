@@ -2,18 +2,13 @@ package code;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.io.Serializable;
 
 /**
  * Color Scheme
  * @author Jason
  * The defined color scheme set for the display
  */
-public final class colorScheme extends Object implements Serializable{
-	/**
-	 * Serial Version UID
-	 */
-	private static final long serialVersionUID = 602316359698856322L;
+public final class colorScheme{
 	private static String colorSchemeName;
 	private static Fonts heading1, heading2, heading3, heading4;
 	private static Fonts paragraph1, paragraph2, paragraph3;
@@ -40,10 +35,9 @@ public final class colorScheme extends Object implements Serializable{
 		paragraph2 = new Fonts(new Font("Dialog", 0, 12));
 		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
 
-		// Background
+		// Background Color
 		backgroundColor = new Color(255, 255, 255);
-	}
-	
+	}	
 	
 	/**
 	 * Color Scheme
@@ -65,11 +59,10 @@ public final class colorScheme extends Object implements Serializable{
 		paragraph2 = new Fonts(new Font("Dialog", 0, 12));
 		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
 
-		// Background
+		// Background Color
 		backgroundColor = new Color(255, 255, 255);
 	}
 	
-
 	/**
 	 * Color Scheme
 	 * The Color Scheme Constructors
@@ -90,7 +83,7 @@ public final class colorScheme extends Object implements Serializable{
 		paragraph2 = new Fonts(new Font("Dialog", 0, 12));
 		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
 
-		// Background
+		// Background Color
 		backgroundColor = new Color(R, G, B);
 	}
 	
@@ -110,8 +103,7 @@ public final class colorScheme extends Object implements Serializable{
 	 */
 	public String getColorSchemeTitle() {
 		return colorSchemeName;
-	}
-	
+	}	
 
 	/**
 	 * Set Heading Fonts
@@ -168,8 +160,6 @@ public final class colorScheme extends Object implements Serializable{
 		// If headingNo is incorrect
 		return null;
 	}
-	
-	
 	
 	/**
 	 * Set Paragraph Fonts
