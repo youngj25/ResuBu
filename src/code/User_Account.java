@@ -2,12 +2,12 @@ package code;
 
 import java.util.ArrayList;
 
-public class User_Account {
-	private static String firstName, middleName, lastName; // Names
-	private static String address, city, state, zip; // Address
-	private static ArrayList <String> phone, email, webLinks; // Various data 
-	private static ArrayList <Education> edu; // Education Experience
-	private static ArrayList <Work> work; // Work Experience
+class User_Account {
+	private String firstName, middleName, lastName; // Names
+	private String address, city, state, zip; // Address
+	private ArrayList <String> phone, email, webLinks; // Various data 
+	private ArrayList <Education> edu; // Education Experience
+	private ArrayList <Work> work; // Work Experience
 		
 	/**
 	 * Constructor
@@ -30,7 +30,17 @@ public class User_Account {
 		firstName = s;	
 	}	
 
-	 /* Set Middle Name
+	/**
+	 * Get First Name
+	 * Returns the User's First Name
+	 * @return The First Name
+	 */
+	public String getFirstName() {
+		return firstName;		
+	}	
+	
+	 /**
+	 *  Set Middle Name
 	 * Sets the User's Middle Name to the Specified String s
 	 * @param s New Middle Name
 	 */
@@ -47,7 +57,8 @@ public class User_Account {
 		return middleName;		
 	}	
 	
-	 /* Set Last Name
+	 /**
+	 * Set Last Name
 	 * Sets the User's Last Name to the Specified String s
 	 * @param s New Last Name
 	 */
@@ -63,7 +74,7 @@ public class User_Account {
 	public String getLastName() {
 		return lastName;		
 	}	
-
+	
 	/**
 	 * Set Address
 	 * Sets the User's Address
@@ -188,8 +199,7 @@ public class User_Account {
 	public ArrayList<String> getPhone(){
 		return phone;		
 	}
-	
-	
+		
 	/**
 	 * Add Email
 	 * This adds the String s to the ArrayList of Emails

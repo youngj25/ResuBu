@@ -7,10 +7,10 @@ import java.util.ArrayList;
  * Holds the detailed information regarding the company of employment
  * @author Jason
  */
-public class Work {
-	private static String company, city, state;
-	private static int startMonth,startYear,endMonth,endYear;
-	private static ArrayList <Positions> positions; // Courses 
+class Work {
+	private String company, city, state;
+	private int startMonth,startYear,endMonth,endYear;
+	private ArrayList <Positions> positions; // Courses 
 	
 	public Work() {
 		company=city=state=null;
@@ -147,9 +147,9 @@ public class Work {
  * @author Jason
  */
 class Positions{
-	private static String positionTitle;
-	private static int startMonth,startYear,endMonth,endYear;
-	private static ArrayList <String> description; // Description 
+	private String positionTitle;
+	private int startMonth,startYear,endMonth,endYear;
+	private ArrayList <String> description; // Description 
 	
 	public Positions() {
 		positionTitle = null;
