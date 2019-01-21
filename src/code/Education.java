@@ -3,11 +3,11 @@ package code;
 import java.util.ArrayList;
 
 class Education {
-	private static String title, city, state;
-	private static String degree,major, minor;
-	private static double gpa; // Grade Point Average
-	private static int startMonth,startYear,endMonth,endYear;
-	private static ArrayList <String> courses; // Courses 
+	private String title, city, state;
+	private String degree,major, minor;
+	private double gpa; // Grade Point Average
+	private int startMonth,startYear,endMonth,endYear;
+	private ArrayList <String> courses; // Courses 
 	
 	/**
 	 * Constructor

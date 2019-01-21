@@ -14,7 +14,7 @@ public class GUI extends Frame implements Printable, ActionListener{
 	 * File Parameters
 	 */
 	private static final long serialVersionUID = 1L;
-    private static String []Jabout={"A program that will display the battlefield for future game development"};
+    private static String []Jabout={"A program that will allow users to easily maniplualate and create resumes"};
     private static String command = "", jay="Jason A. Young";
     private static Frame frame;
     private static User_Account user = new User_Account();
@@ -256,39 +256,16 @@ public class GUI extends Frame implements Printable, ActionListener{
 	
 	public static void loadColorScheme() {
 		// Scheme
-		/**
 		menuThemeSelection = 0;
 						  
-		colorScheme cat = new colorScheme("Default");
-		scheme.add(cat);
+		scheme.add(new colorScheme("Default"));
+		scheme.add(new colorScheme("Midnight", 20, 20, 60));
+		scheme.add(new colorScheme("123", 20, 20, 160));
+		scheme.add(new colorScheme("456", 20, 20, 160));
+		scheme.add(new colorScheme("789", 20, 20, 160));
+		 
 		
-		colorScheme bat = new colorScheme("Midnight", 20, 120, 60);		
-		scheme.add(bat);
-		
-		scheme.add(new colorScheme());
-		scheme.add(new colorScheme());
-		
-		// scheme.add(new colorScheme("123", 20, 20, 160));
-		// scheme.add(new colorScheme("456", 20, 20, 160));
-		// scheme.add(new colorScheme("789", 20, 20, 160));
-		
-		scheme.get(0).setColorSchemeTitle("Default");
-		scheme.get(1).setColorSchemeTitle("Midnight");
-		scheme.get(2).setColorSchemeTitle("Dawn");
-		
-		
-		scheme.set(1,new colorScheme("Midnight", 20, 40, 160));  
-		
-		
-		
-		for(int x=0; x<scheme.size(); x++)
-			System.out.println(scheme.get(x).getColorSchemeTitle());
-		// System.out.println(scheme.size());
-		System.out.println("-------------------------------");
-							
-		System.out.println(cat.getColorSchemeTitle());
-		System.out.println(bat.getColorSchemeTitle());
-		
+		// Set the titles of the Color Scheme
 		for(int x=1; x<scheme.size() && x<6; x++) {
 			if(x == 1)
 				colorScheme1.setLabel(scheme.get(x).getColorSchemeTitle());
@@ -300,41 +277,9 @@ public class GUI extends Frame implements Printable, ActionListener{
 				colorScheme4.setLabel(scheme.get(x).getColorSchemeTitle());
 			else if(x == 5)
 				colorScheme5.setLabel(scheme.get(x).getColorSchemeTitle());
-			
-			// System.out.println(x);
 		}
 		
 		frame.setBackground(scheme.get(0).getBackgroundColor());
-		**/
-		
-		ArrayList<TestList> newList = new ArrayList<TestList>();
-		newList.add(new TestList("bat"));
-		newList.add(new TestList("blue jay"));
-		newList.add(new TestList("cat"));
-		newList.add(new TestList("fox"));
-		newList.add(new TestList("whale"));
-		
-		newList.get(1).setWord("blue jay");
-		
-		//for(int x=0; x<newList.size(); x++)
-			//System.out.println(newList.get(x).getWord());
-		
-		for(TestList tL:newList) 
-	        System.out.println(">"+tL);  
-	    
-		
-		
-		/**
-		ArrayList<String> list = new ArrayList<String>();
-		list.add(new String("1. Apple"));
-		list.add(new String("2. Banana"));
-		list.add(new String("3. Grape"));
-		list.add(new String("4. Orange"));
-		list.add("5. Pear");
-		list.add("6. Peach");
-		for(int x=0; x<list.size(); x++)
-			System.out.println(list.get(x));
-		**/
 	}
 }
 

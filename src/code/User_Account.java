@@ -3,11 +3,11 @@ package code;
 import java.util.ArrayList;
 
 class User_Account {
-	private static String firstName, middleName, lastName; // Names
-	private static String address, city, state, zip; // Address
-	private static ArrayList <String> phone, email, webLinks; // Various data 
-	private static ArrayList <Education> edu; // Education Experience
-	private static ArrayList <Work> work; // Work Experience
+	private String firstName, middleName, lastName; // Names
+	private String address, city, state, zip; // Address
+	private ArrayList <String> phone, email, webLinks; // Various data 
+	private ArrayList <Education> edu; // Education Experience
+	private ArrayList <Work> work; // Work Experience
 		
 	/**
 	 * Constructor

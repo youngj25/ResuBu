@@ -9,10 +9,10 @@ import java.awt.Font;
  * The defined color scheme set for the display
  */
 public final class colorScheme{
-	private static String colorSchemeName;
-	private static Fonts heading1, heading2, heading3, heading4;
-	private static Fonts paragraph1, paragraph2, paragraph3;
-	private static Color backgroundColor;
+	private String colorSchemeName;
+	private Fonts heading1, heading2, heading3, heading4;
+	private Fonts paragraph1, paragraph2, paragraph3;
+	private Color backgroundColor;
 	
 	
 
