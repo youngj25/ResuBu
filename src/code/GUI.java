@@ -307,17 +307,21 @@ public class GUI extends Frame implements Printable, ActionListener{
 		frame.setBackground(scheme.get(0).getBackgroundColor());
 		**/
 		
-		ArrayList<testList> newList = new ArrayList<testList>();
-		newList.add(new testList("bat"));
-		newList.add(new testList("blue jay"));
-		newList.add(new testList("cat"));
-		newList.add(new testList("fox"));
-		newList.add(new testList("whale"));
+		ArrayList<TestList> newList = new ArrayList<TestList>();
+		newList.add(new TestList("bat"));
+		newList.add(new TestList("blue jay"));
+		newList.add(new TestList("cat"));
+		newList.add(new TestList("fox"));
+		newList.add(new TestList("whale"));
 		
+		newList.get(1).setWord("blue jay");
 		
-		for(int x=0; x<newList.size(); x++)
-			System.out.println(newList.get(x).getWord());
+		//for(int x=0; x<newList.size(); x++)
+			//System.out.println(newList.get(x).getWord());
 		
+		for(TestList tL:newList) 
+	        System.out.println(">"+tL);  
+	    
 		
 		
 		/**
