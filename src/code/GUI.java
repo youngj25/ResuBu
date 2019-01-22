@@ -41,6 +41,7 @@ public class GUI extends Frame implements Printable, ActionListener{
         MenuBar mb = new MenuBar();
         setMenuBar(mb);
         
+        // File Menu
         Menu fileMenu=new Menu("File");
         mb.add(fileMenu);
         
@@ -95,6 +96,36 @@ public class GUI extends Frame implements Printable, ActionListener{
         miExit.addActionListener(this);
         fileMenu.add(miExit);
         
+        // Resume Menu
+        Menu resumeMenu=new Menu("Resume");
+        mb.add(resumeMenu);
+        
+        MenuItem miResume=new MenuItem("Edit Resume Info");
+        miResume.addActionListener(this);
+        resumeMenu.add(miResume);
+         
+        MenuItem miSection=new MenuItem("Edit Sections");
+        miSection.addActionListener(this);
+        resumeMenu.add(miSection);
+        
+        MenuItem miPreview=new MenuItem("Preview Resume");
+        miPreview.addActionListener(this);
+        resumeMenu.add(miPreview);
+        
+        MenuItem miImportResume=new MenuItem("Import Resume");
+        miImportResume.addActionListener(this);
+        resumeMenu.add(miImportResume);
+        
+        MenuItem miLoadExample=new MenuItem("Load Example Resume");
+        miLoadExample.addActionListener(this);
+        resumeMenu.add(miLoadExample);
+        
+        // Help Menu
+        Menu helpMenu=new Menu("Help");
+        mb.add(helpMenu);
+        
+        
+        
         WindowListener l = new WindowAdapter(){
                         
             public void windowClosing(WindowEvent ev){
@@ -133,6 +164,7 @@ public class GUI extends Frame implements Printable, ActionListener{
                 
                 repaint();
             }
+            // Color Schemes
             else if("Default".equals(command)||scheme.get(1).getColorSchemeTitle().equals(command)||scheme.get(2).getColorSchemeTitle().equals(command)){
             	
             	if("Default".equals(command))
@@ -173,7 +205,17 @@ public class GUI extends Frame implements Printable, ActionListener{
                      }
                  }
             }
-            else if("Exit".equals(command))System.exit(0);
+            // Resumes
+            else if("Preview Resume".equals(command))
+            		repaint();
+            else if("Load Example Resume".equals(command)){
+            	Data_Importer imports = new Data_Importer();
+            	user = imports.loadUserData("Example");
+            	repaint();
+            }
+            
+            else if("Exit".equals(command))
+            	System.exit(0);
             //repaint();
         }
         
@@ -227,7 +269,7 @@ public class GUI extends Frame implements Printable, ActionListener{
             }
             
             // Load Example
-            else if("Load Example".equals(command)){
+            else if("Preview Resume".equals(command)){
             	
             	int stringSize = (user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName()).length();
             	stringSize= stringSize*25/3;
@@ -247,7 +289,7 @@ public class GUI extends Frame implements Printable, ActionListener{
                 g.drawString(jay,ww-150, wh-20);
                 g.setColor(Color.BLACK);
                 
-                frame.setBackground(scheme.get(0).getBackgroundColor());
+                frame.setBackground(scheme.get(menuThemeSelection).getBackgroundColor());
             }
             else if("Print".equals(command)){
                 g.setColor(Color.BLACK);
@@ -259,6 +301,7 @@ public class GUI extends Frame implements Printable, ActionListener{
 		menuThemeSelection = 0;
 						  
 		scheme.add(new colorScheme("Default"));
+		scheme.add(new colorScheme("Dawn", 220, 150,150));
 		scheme.add(new colorScheme("Midnight", 20, 20, 60));
 		scheme.add(new colorScheme("123", 20, 20, 160));
 		scheme.add(new colorScheme("456", 20, 20, 160));
