@@ -15,7 +15,7 @@ public class GUI extends Frame implements Printable, ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
     private static String []Jabout={"A program that will allow users to easily maniplualate and create resumes"};
-    private static String command = "", jay="Jason A. Young";
+    private static String command = "", jay="Jason A. Young", applicationState="start";
     private static Frame frame;
     private static User_Account user = new User_Account();
     private static ArrayList <colorScheme> scheme = new ArrayList<colorScheme>();
@@ -49,14 +49,6 @@ public class GUI extends Frame implements Printable, ActionListener{
         miAbout.addActionListener(this);
         fileMenu.add(miAbout);
         
-        MenuItem miDefault =new MenuItem("Upload Default");
-        miDefault.addActionListener(this);
-        fileMenu.add(miDefault);
-        
-        MenuItem miBlank=new MenuItem("Blank");
-        miBlank.addActionListener(this);
-        fileMenu.add(miBlank);
-        
         Menu colorSchemeSubMenu=new Menu("Color Schemes");
         fileMenu.add(colorSchemeSubMenu);
         
@@ -83,10 +75,6 @@ public class GUI extends Frame implements Printable, ActionListener{
         colorScheme5=new MenuItem("colorScheme5");
         colorScheme5.addActionListener(this);
         colorSchemeSubMenu.add(colorScheme5);
-        
-        MenuItem miExample=new MenuItem("Load Example");
-        miExample.addActionListener(this);
-        fileMenu.add(miExample);
         
         MenuItem miPrint=new MenuItem("Print");
         miPrint.addActionListener(this);
@@ -158,11 +146,10 @@ public class GUI extends Frame implements Printable, ActionListener{
      */
     public void actionPerformed (ActionEvent ev){
             command = ev.getActionCommand();                        
-            
-            if("About".equals(command))repaint();
-            else if("Blank".equals(command)||"Upload Default".equals(command)){
-                
-                repaint();
+            // File Menu
+            if("About".equals(command)) {
+            	applicationState = "About";
+            	repaint();            	
             }
             // Color Schemes
             else if("Default".equals(command)||scheme.get(1).getColorSchemeTitle().equals(command)||scheme.get(2).getColorSchemeTitle().equals(command)){
@@ -180,17 +167,10 @@ public class GUI extends Frame implements Printable, ActionListener{
             	else if(scheme.get(5).getColorSchemeTitle().equals(command))
             		menuThemeSelection = 5;
             		
-            	System.out.println("color Theme Selected: "+command);
+            	// System.out.println("color Theme Selected: "+command);
             		
-            	frame.setBackground(scheme.get(menuThemeSelection).getBackgroundColor());
-                
+            	frame.setBackground(scheme.get(menuThemeSelection).getBackgroundColor());   
             	
-            	
-            	repaint();
-            }
-            else if("Load Example".equals(command)){
-            	Data_Importer imports = new Data_Importer();
-            	user = imports.loadUserData("Example");
             	repaint();
             }
             else if("Print".equals(command)){
@@ -205,18 +185,20 @@ public class GUI extends Frame implements Printable, ActionListener{
                      }
                  }
             }
-            // Resumes
-            else if("Preview Resume".equals(command))
-            		repaint();
+            else if("Exit".equals(command))
+            	System.exit(0);
+            // Resume Menu
+            else if("Preview Resume".equals(command)) {
+            	applicationState = "Preview";
+            	repaint();
+            }
             else if("Load Example Resume".equals(command)){
             	Data_Importer imports = new Data_Importer();
             	user = imports.loadUserData("Example");
             	repaint();
             }
-            
-            else if("Exit".equals(command))
-            	System.exit(0);
-            //repaint();
+            // Help Menu
+            // repaint();
         }
         
     public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
@@ -248,7 +230,7 @@ public class GUI extends Frame implements Printable, ActionListener{
             int ww = (int)this.getWidth();
             int wh = (int)this.getHeight();
             
-            if("About".equals(command)){
+            if("About".equals(command) || applicationState == "About"){
               int x = ww/4;
               int y = (int)(wh*.4);
               
@@ -269,26 +251,28 @@ public class GUI extends Frame implements Printable, ActionListener{
             }
             
             // Load Example
-            else if("Preview Resume".equals(command)){
-            	
-            	int stringSize = (user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName()).length();
-            	stringSize= stringSize*25/3;
-            	
-                g.setFont(scheme.get(0).getHeadingFonts(1));
-                g.setColor(scheme.get(0).getParagraphColor(1));
-                g.drawString(user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName(), (int)(ww/2-stringSize),100);
-                
-                g.setFont(scheme.get(0).getHeadingFonts(3));
-                g.setColor(scheme.get(0).getParagraphColor(1));
-                g.drawString(user.getWork(0).getCompanyName(), (int)(ww/2-stringSize),450);
-                g.drawString(user.getWork(1).getCompanyName(), (int)(ww/2-stringSize),475);
-                g.drawString(user.getEducation(0).getTitle(), (int)(ww/2-stringSize),500);
-                                
-                g.setFont(scheme.get(0).getParagraphFonts(1));
-                g.setColor(Color.BLUE);
-                g.drawString(jay,ww-150, wh-20);
-                g.setColor(Color.BLACK);
-                
+            else if("Preview Resume".equals(command) || applicationState == "Preview"){
+            	if(user.getFirstName() != null) {
+	            	int stringSize = (user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName()).length();
+	            	stringSize= stringSize*25/3;
+	            	
+	                g.setFont(scheme.get(0).getHeadingFonts(1));
+	                g.setColor(scheme.get(0).getParagraphColor(1));
+	                g.drawString(user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName(), (int)(ww/2-stringSize),100);
+	                
+	                g.setFont(scheme.get(0).getHeadingFonts(3));
+	                g.setColor(scheme.get(0).getParagraphColor(1));
+	                g.drawString(user.getWork(0).getCompanyName(), (int)(ww/2-stringSize),450);
+	                g.drawString(user.getWork(1).getCompanyName(), (int)(ww/2-stringSize),475);
+	                g.drawString(user.getEducation(0).getTitle(), (int)(ww/2-stringSize),500);
+            	}
+            	else{
+            		g.drawString("Error Occured. Data not loaded yet.", (int)(ww*0.37),(int)(wh*0.45));
+	                g.setFont(scheme.get(0).getParagraphFonts(1));
+	                g.setColor(Color.BLUE);
+	                g.drawString(jay,ww-150, wh-20);
+	                g.setColor(Color.BLACK);
+            	}
                 frame.setBackground(scheme.get(menuThemeSelection).getBackgroundColor());
             }
             else if("Print".equals(command)){
