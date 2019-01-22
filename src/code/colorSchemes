@@ -1,0 +1,44 @@
+ColorThemeTitle:Midnight
+backgroundColor: 30, 30, 80
+heading1
+fontName:"Dialog"
+fontStyle:0
+fontSize:28
+Color: 180, 180, 180
+heading2
+fontName:"Dialog"
+fontStyle:0
+fontSize:24
+Color: 180, 180, 180
+heading3
+fontName:
+fontStyle:
+fontSize:20
+Color: 180, 180, 180
+heading4
+fontName:"Dialog"
+fontStyle:0
+fontSize:16
+Color: 180, 180, 180
+paragraph1
+fontName:"Dialog"
+fontStyle:0
+fontSize:14
+Color: 180, 180, 180
+paragraph2
+fontName:"Dialog"
+fontStyle:0
+fontSize:12
+Color: 180, 180, 180
+paragraph3
+fontName:"Dialog"
+fontStyle:0
+fontSize:10
+Color: 180, 180, 180
+about
+fontName:"Dialog"
+fontStyle:0
+fontSize:16
+Color: 180, 180, 180
+signature
+Color: 180, 180, 255

@@ -4,6 +4,7 @@ import java.io.FileReader;      // both needed
 import java.io.BufferedReader;  // for line input
 import java.io.IOException;
 import java.lang.NullPointerException;
+import java.util.ArrayList;
 
 /**
  * Data Importer
@@ -239,6 +240,48 @@ class Data_Importer {
 		return user;
 	}
 
-	
+	public ArrayList <colorScheme>  loadColorScheme() {
+		ArrayList <colorScheme> schemes = new ArrayList<colorScheme>();
+		   
+		// Load the Example Data
+		try{
+			String pathToExample = System.getProperty("user.dir")+"/src/code/colorSchemes";
+			File file= new File(pathToExample);
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String range=br.readLine();
+            while(range != null) {
+            	colorScheme theme = new colorScheme();
+            	// Color Theme Title
+            	if(range.indexOf("ColorThemeTitle:")==0) {
+            		theme.setColorSchemeTitle(range.substring(15));
+            		range=br.readLine();
+            	}
+            	// Background Color
+            	else if(range.indexOf("backgroundColor:")==0) {
+            		
+            		range=br.readLine();
+            	}
+            	
+            	else {
+            		System.out.println(range);
+            		range=br.readLine();
+            	}
+            }
+            //Close the stream
+            fr.close();
+            br.close();
+            
+		}
+        catch(IOException ioe) {
+			System.out.println(ioe);
+		}
+		catch(NullPointerException ioe) {
+			System.out.println(ioe);
+		}
+		
+		
+		return schemes;
+	}
 	
 }

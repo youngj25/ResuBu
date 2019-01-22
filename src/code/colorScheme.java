@@ -12,6 +12,7 @@ public final class colorScheme{
 	private String colorSchemeName;
 	private Fonts heading1, heading2, heading3, heading4;
 	private Fonts paragraph1, paragraph2, paragraph3;
+	private Fonts signature, about;
 	private Color backgroundColor;
 	
 	
@@ -48,6 +49,9 @@ public final class colorScheme{
 		// Color Scheme Title
 		colorSchemeName = s;
 		
+		// Background Color
+		backgroundColor = new Color(255, 255, 255);
+		
 		// Preset Headings
 		heading1 = new Fonts(new Font("Dialog", 0, 28));
 		heading2 = new Fonts(new Font("Dialog", 0, 24));
@@ -58,9 +62,12 @@ public final class colorScheme{
 		paragraph1 = new Fonts(new Font("Dialog", 0, 14));
 		paragraph2 = new Fonts(new Font("Dialog", 0, 12));
 		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
-
-		// Background Color
-		backgroundColor = new Color(255, 255, 255);
+		
+		// Preset Signature
+		signature = new Fonts(new Font("Dialog", 0, 10));
+		
+		// Preset About
+		about = new Fonts(new Font("Dialog", 0, 16));
 	}
 	
 	/**
@@ -68,9 +75,12 @@ public final class colorScheme{
 	 * The Color Scheme Constructors
 	 * @param s The Title of the Color Scheme
 	 */
-	public colorScheme(String s, int R, int G, int B) {
+	public colorScheme(String s, int backgroundR, int backgroundG, int backgroundB) {
 		// Color Scheme Title
 		colorSchemeName = s;
+		// Background Color
+		backgroundColor = new Color(backgroundR, backgroundG, backgroundB);
+		
 		
 		// Preset Headings
 		heading1 = new Fonts(new Font("Dialog", 0, 28));
@@ -83,8 +93,11 @@ public final class colorScheme{
 		paragraph2 = new Fonts(new Font("Dialog", 0, 12));
 		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
 
-		// Background Color
-		backgroundColor = new Color(R, G, B);
+		// Preset Signature
+		signature = new Fonts(new Font("Dialog", 0, 10));
+		
+		// Preset About
+		about = new Fonts(new Font("Dialog", 0, 16));
 	}
 	
 	/**
@@ -264,6 +277,30 @@ public final class colorScheme{
 	public Color getBackgroundColor() {
 		return backgroundColor;
 	}
+	
+	
+	public void setAboutColor(int R, int G, int B) {
+		about.setFontColor( R, G, B);
+	}
+	
+	
+	
+	public Color getAboutColor() {
+		return  about.getFontColor();
+	}
+	
+	public void setSignatureColor(int R, int G, int B) {
+		signature.setFontColor( R, G, B);
+	}
+	
+	public Color getSignatureColor() {
+		return signature.getFontColor();
+	}
+	
+	public String toString() {
+		return colorSchemeName;		
+	}
+	
 }
 
 /**

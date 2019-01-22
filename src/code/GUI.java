@@ -21,6 +21,7 @@ public class GUI extends Frame implements Printable, ActionListener{
     private static ArrayList <colorScheme> scheme = new ArrayList<colorScheme>();
     private static MenuItem Default, colorScheme1, colorScheme2, colorScheme3, colorScheme4, colorScheme5;    
     private static int menuThemeSelection = 0;
+    private static Data_Importer imports = new Data_Importer();
     
     /**
      * creates a Frame
@@ -193,7 +194,6 @@ public class GUI extends Frame implements Printable, ActionListener{
             	repaint();
             }
             else if("Load Example Resume".equals(command)){
-            	Data_Importer imports = new Data_Importer();
             	user = imports.loadUserData("Example");
             	repaint();
             }
@@ -291,6 +291,9 @@ public class GUI extends Frame implements Printable, ActionListener{
 		scheme.add(new colorScheme("456", 20, 20, 160));
 		scheme.add(new colorScheme("789", 20, 20, 160));
 		 
+		
+		imports.loadColorScheme();
+		
 		
 		// Set the titles of the Color Scheme
 		for(int x=1; x<scheme.size() && x<6; x++) {
