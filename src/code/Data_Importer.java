@@ -250,23 +250,93 @@ class Data_Importer {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String range=br.readLine();
-            while(range != null) {
+            while(range != null && range.equals("ColorThemeTitleStart")) {
             	colorScheme theme = new colorScheme();
-            	// Color Theme Title
-            	if(range.indexOf("ColorThemeTitle:")==0) {
-            		theme.setColorSchemeTitle(range.substring(15));
-            		range=br.readLine();
+            	range=br.readLine();
+            	while(!range.equals("ColorThemeTitleEnd")) {
+	            	
+	            	// Color Theme Title
+	            	if(range.indexOf("ColorThemeTitle:")==0) {
+	            		theme.setColorSchemeTitle(range.substring(16));
+	            		range=br.readLine();
+	            	}
+	            	// Background Color
+	            	else if(range.indexOf("backgroundColor:")==0) {
+	            		range = range.trim();
+	            		range = range.replace(" ", "");
+	            		int breakLocation  = range.indexOf(",");
+	            		int Red =Integer.parseInt(range.substring(16, breakLocation));
+	            		int secondBreakLocation  = range.indexOf(",", breakLocation+1);
+	            		int Green =Integer.parseInt(range.substring(breakLocation+1, secondBreakLocation));
+	            		int Blue =Integer.parseInt(range.substring(secondBreakLocation+1));
+	            		
+	            		theme.setBackgroundColor(Red, Green, Blue);
+	            		range=br.readLine();
+	            	}
+	            	// Heading 1-4
+	            	else if(range.equals("heading1") || range.equals("heading2")|| range.equals("heading3")|| range.equals("heading4")) {	            		
+	            		int heading = 1;
+	            		if(range.equals("heading2"))
+	            			heading = 2;
+	            		else if(range.equals("heading3"))
+	            			heading = 3;
+	            		else if(range.equals("heading4"))
+	            			heading = 4;
+	            		
+	            		
+	            		
+	            		range=br.readLine();
+	            		String fontName = "Dialog";
+	            		int style = 0, size= 16;
+	            		int Red=0, Green=0, Blue=0;
+	            		
+	            		
+	            		// Font Name
+	            		if(range.indexOf("fontName:")==0) {
+	            			fontName = range.substring(9);
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Style
+	            		if(range.indexOf("fontStyle:")==0) {
+	            			style = Integer.parseInt(range.substring(10));
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Size
+	            		if(range.indexOf("fontSize:")==0) {
+	            			size = Integer.parseInt(range.substring(9));
+	            			range=br.readLine();
+	            		}
+	            		
+	            		
+	            		// Font Color
+	                	if(range.indexOf("Color:")==0) {
+	                		range = range.trim();
+	                		range = range.replace(" ", "");
+	                		int breakLocation  = range.indexOf(",");
+	                		Red =Integer.parseInt(range.substring(6, breakLocation));
+	                		int secondBreakLocation  = range.indexOf(",", breakLocation+1);
+	                		Green =Integer.parseInt(range.substring(breakLocation+1, secondBreakLocation));
+	                		Blue =Integer.parseInt(range.substring(secondBreakLocation+1));
+	                		
+	                		range=br.readLine();
+	                	}
+	                	
+	                	
+	            		theme.setHeadingFonts(heading, fontName, style, size);
+	            		theme.setHeadingColor(heading, Red, Green, Blue);
+	            	}
+	            	
+	            	// Else than error occurred
+	            	else {
+	            		System.out.println(range);
+	            		range=br.readLine();
+	            	}
+	            	
             	}
-            	// Background Color
-            	else if(range.indexOf("backgroundColor:")==0) {
-            		
-            		range=br.readLine();
-            	}
-            	
-            	else {
-            		System.out.println(range);
-            		range=br.readLine();
-            	}
+            	schemes.add(theme);
+            	range=br.readLine();
             }
             //Close the stream
             fr.close();

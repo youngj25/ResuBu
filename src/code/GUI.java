@@ -257,7 +257,7 @@ public class GUI extends Frame implements Printable, ActionListener{
 	            	stringSize= stringSize*25/3;
 	            	
 	                g.setFont(scheme.get(0).getHeadingFonts(1));
-	                g.setColor(scheme.get(0).getParagraphColor(1));
+	                g.setColor(scheme.get(0).getHeadingColor(1));
 	                g.drawString(user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName(), (int)(ww/2-stringSize),100);
 	                
 	                g.setFont(scheme.get(0).getHeadingFonts(3));
@@ -284,16 +284,17 @@ public class GUI extends Frame implements Printable, ActionListener{
 		// Scheme
 		menuThemeSelection = 0;
 						  
-		scheme.add(new colorScheme("Default"));
+		//scheme = imports.loadColorScheme();
+		scheme.add(0, new colorScheme("Default"));
+		scheme.add(imports.loadColorScheme().get(0));
+		System.out.println(scheme.size()+"************");
+		
+		
 		scheme.add(new colorScheme("Dawn", 220, 150,150));
-		scheme.add(new colorScheme("Midnight", 20, 20, 60));
+		scheme.add(new colorScheme("Night", 120, 120, 120));
 		scheme.add(new colorScheme("123", 20, 20, 160));
 		scheme.add(new colorScheme("456", 20, 20, 160));
-		scheme.add(new colorScheme("789", 20, 20, 160));
 		 
-		
-		imports.loadColorScheme();
-		
 		
 		// Set the titles of the Color Scheme
 		for(int x=1; x<scheme.size() && x<6; x++) {

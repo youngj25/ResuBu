@@ -146,6 +146,26 @@ public final class colorScheme{
 		}
 	}
 	
+	
+	public void setHeadingColor(int headingNo, int R, int G, int B) {
+		// Sets Heading 1
+		if(headingNo == 1) {
+			heading1.setFontColor( R, G, B);
+		}
+		// Sets Heading 2
+		else if(headingNo == 2) {
+			heading2.setFontColor( R, G, B);
+		}
+		// Sets Heading 3
+		else if(headingNo == 3) {
+			heading3.setFontColor( R, G, B);
+		}
+		// Sets Heading 4
+		else if(headingNo == 4) {
+			heading4.setFontColor( R, G, B);
+		}
+	}
+	
 
 	/**
 	 * Get Heading Fonts
@@ -173,6 +193,31 @@ public final class colorScheme{
 		// If headingNo is incorrect
 		return null;
 	}
+	
+	
+	public Color getHeadingColor(int headingNo) {
+		// Sets Heading 1
+		if(headingNo == 1) {
+			return heading1.getFontColor();
+		}
+		// Sets Heading 2
+		else if(headingNo == 2) {
+			return heading2.getFontColor();
+		}
+		// Sets Heading 3
+		else if(headingNo == 3) {
+			return heading3.getFontColor();
+		}
+		// Sets Heading 4
+		else if(headingNo == 4) {
+			return heading4.getFontColor();
+		}
+		// If paragraphNo is incorrect
+		return null;
+	}
+	
+	
+	
 	
 	/**
 	 * Set Paragraph Fonts
@@ -309,7 +354,7 @@ public final class colorScheme{
  * Fonts extends Font and adds color option
  */
 class Fonts extends Font{
-	private static Color fontColor;
+	private Color fontColor;
 	private static final long serialVersionUID = 1L;
 
 	protected Fonts(Font arg0) {
