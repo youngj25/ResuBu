@@ -189,6 +189,10 @@ public class GUI extends Frame implements Printable, ActionListener{
             else if("Exit".equals(command))
             	System.exit(0);
             // Resume Menu
+            else if("Edit Sections".equals(command)) {
+            	applicationState = "PreviewES";
+            	repaint();
+            }
             else if("Preview Resume".equals(command)) {
             	applicationState = "Preview";
             	repaint();
@@ -251,7 +255,44 @@ public class GUI extends Frame implements Printable, ActionListener{
               g.setColor(scheme.get(menuThemeSelection).getSignatureColor());
               g.drawString(jay,ww-150, wh-20);
             }
-            
+         // Sections Example - focusing on the Work Section for Now
+            else if("Edit Sections".equals(command) || applicationState == "PreviewES"){
+            	if(user.getFirstName() != null) {
+	            	int stringSize = (user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName()).length();
+	            	stringSize= stringSize*25/3;
+	            	
+	                g.setFont(scheme.get(menuThemeSelection).getHeadingFonts(1));
+	                g.setColor(scheme.get(menuThemeSelection).getHeadingColor(1));
+	                g.drawString(user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName(), (int)(ww/2-stringSize),100);
+	                
+	                // Work Section
+	                g.setFont(scheme.get(menuThemeSelection).getHeadingFonts(3));
+	                g.setColor(scheme.get(menuThemeSelection).getHeadingColor(3));
+	                g.drawString(user.getWork(0).getCompanyName(), (int)ww/2-100,250);
+	                // Position
+	                g.setFont(scheme.get(menuThemeSelection).getParagraphFonts(1));
+	                g.setColor(scheme.get(menuThemeSelection).getParagraphColor(1));
+	                g.drawString(user.getWork(0).getPosition(0).getPositionTitle(), (int)ww/2-100,275);
+	                // Responsibilities
+	                g.setFont(scheme.get(menuThemeSelection).getParagraphFonts(2));
+	                g.setColor(scheme.get(menuThemeSelection).getParagraphColor(2));
+	                int numberOfResponsibilities =  user.getWork(0).getPosition(0).getDescriptionSize();
+	                for(int x=0; x<numberOfResponsibilities; x++)
+	                	g.drawString(user.getWork(0).getPosition(0).getDescription(x), (int)ww/2-60,295+x*20);
+            	}
+            	else{
+            		// Error
+            		g.setFont(scheme.get(menuThemeSelection).getErrorMessagesFont());
+	                g.setColor(scheme.get(menuThemeSelection).getErrorMessagesColor());
+            		g.drawString("Error Occured. No Data has been loaded.", (int)(ww*0.37),(int)(wh*0.45));
+	                
+            		// Signature
+            		g.setFont(scheme.get(menuThemeSelection).getSignatureFont());
+	                g.setColor(scheme.get(menuThemeSelection).getSignatureColor());
+	                g.drawString(jay,ww-150, wh-20);
+            	}
+                frame.setBackground(scheme.get(menuThemeSelection).getBackgroundColor());
+            }
             // Load Example
             else if("Preview Resume".equals(command) || applicationState == "Preview"){
             	if(user.getFirstName() != null) {
@@ -263,7 +304,7 @@ public class GUI extends Frame implements Printable, ActionListener{
 	                g.drawString(user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName(), (int)(ww/2-stringSize),100);
 	                
 	                g.setFont(scheme.get(menuThemeSelection).getHeadingFonts(3));
-	                g.setColor(scheme.get(menuThemeSelection).getParagraphColor(1));
+	                g.setColor(scheme.get(menuThemeSelection).getHeadingColor(3));
 	                g.drawString(user.getWork(0).getCompanyName(), (int)(ww/2-stringSize),450);
 	                g.drawString(user.getWork(1).getCompanyName(), (int)(ww/2-stringSize),475);
 	                g.drawString(user.getEducation(0).getTitle(), (int)(ww/2-stringSize),500);
@@ -272,7 +313,7 @@ public class GUI extends Frame implements Printable, ActionListener{
             		// Error
             		g.setFont(scheme.get(menuThemeSelection).getErrorMessagesFont());
 	                g.setColor(scheme.get(menuThemeSelection).getErrorMessagesColor());
-            		g.drawString("Error Occured. Data not loaded yet.", (int)(ww*0.37),(int)(wh*0.45));
+            		g.drawString("Error Occured. No Data has been loaded.", (int)(ww*0.37),(int)(wh*0.45));
 	                
             		// Signature
             		g.setFont(scheme.get(menuThemeSelection).getSignatureFont());
