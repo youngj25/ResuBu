@@ -36,11 +36,74 @@ fontName:Dialog
 fontStyle:0
 fontSize:10
 Color: 180, 180, 180
-about
+aboutMessage
 fontName:Dialog
 fontStyle:0
 fontSize:16
 Color: 180, 180, 180
-signature
-Color: 180, 180, 255
+errorMessage
+fontName:Dialog
+fontStyle:0
+fontSize:16
+Color: 180, 180, 180
+signatureMessage
+fontName:Dialog
+fontStyle:0
+fontSize:16
+Color: 120, 120, 255
+ColorThemeTitleEnd
+------------------
+ColorThemeTitleStart
+ColorThemeTitle:Dawn
+backgroundColor: 220, 150, 150
+heading1
+fontName:Dialog
+fontStyle:0
+fontSize:28
+Color: 15, 15, 15
+heading2
+fontName:Dialog
+fontStyle:0
+fontSize:24
+Color: 45, 45, 45
+heading3
+fontName:Dialog
+fontStyle:0
+fontSize:20
+Color: 90, 90, 90
+heading4
+fontName:Dialog
+fontStyle:0
+fontSize:16
+Color: 125, 125, 125
+paragraph1
+fontName:Dialog
+fontStyle:0
+fontSize:14
+Color: 145, 145, 145
+paragraph2
+fontName:Dialog
+fontStyle:0
+fontSize:12
+Color: 145, 145, 145
+paragraph3
+fontName:Dialog
+fontStyle:0
+fontSize:10
+Color: 145, 145, 145
+aboutMessage
+fontName:Dialog
+fontStyle:0
+fontSize:16
+Color: 30, 30, 30
+errorMessage
+fontName:Dialog
+fontStyle:0
+fontSize:16
+Color: 180, 180, 180
+signatureMessage
+fontName:Dialog
+fontStyle:0
+fontSize:16
+Color: 20, 20, 55
 ColorThemeTitleEnd

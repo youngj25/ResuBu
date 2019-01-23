@@ -38,7 +38,7 @@ public final class colorScheme{
 		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
 		
 		// Preset Signature
-		signature = new Fonts(new Font("Dialog", 0, 10));
+		signature = new Fonts(new Font("Dialog", 0, 16));
 				
 		// Preset About
 		about = new Fonts(new Font("Dialog", 0, 16));
@@ -70,7 +70,7 @@ public final class colorScheme{
 		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
 		
 		// Preset Signature
-		signature = new Fonts(new Font("Dialog", 0, 10));
+		signature = new Fonts(new Font("Dialog", 0, 16));
 		
 		// Preset About
 		about = new Fonts(new Font("Dialog", 0, 16));
@@ -101,7 +101,7 @@ public final class colorScheme{
 		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
 
 		// Preset Signature
-		signature = new Fonts(new Font("Dialog", 0, 10));
+		signature = new Fonts(new Font("Dialog", 0, 16));
 		
 		// Preset About
 		about = new Fonts(new Font("Dialog", 0, 16));

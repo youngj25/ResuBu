@@ -283,13 +283,10 @@ class Data_Importer {
 	            		else if(range.equals("heading4"))
 	            			heading = 4;
 	            		
-	            		
-	            		
 	            		range=br.readLine();
 	            		String fontName = "Dialog";
 	            		int style = 0, size= 16;
 	            		int Red=0, Green=0, Blue=0;
-	            		
 	            		
 	            		// Font Name
 	            		if(range.indexOf("fontName:")==0) {
@@ -323,9 +320,175 @@ class Data_Importer {
 	                		range=br.readLine();
 	                	}
 	                	
-	                	
 	            		theme.setHeadingFonts(heading, fontName, style, size);
 	            		theme.setHeadingColor(heading, Red, Green, Blue);
+	            	}
+	            	// Paragraph 1-3
+	            	else if(range.equals("paragraph1") || range.equals("paragraph2")|| range.equals("paragraph3")) {	            		
+	            		int paragraph = 1;
+	            		if(range.equals("paragraph2"))
+	            			paragraph = 2;
+	            		else if(range.equals("paragraph3"))
+	            			paragraph = 3;
+	            	
+	            		range=br.readLine();
+	            		String fontName = "Dialog";
+	            		int style = 0, size= 16;
+	            		int Red=0, Green=0, Blue=0;
+	            		
+	            		// Font Name
+	            		if(range.indexOf("fontName:")==0) {
+	            			fontName = range.substring(9);
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Style
+	            		if(range.indexOf("fontStyle:")==0) {
+	            			style = Integer.parseInt(range.substring(10));
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Size
+	            		if(range.indexOf("fontSize:")==0) {
+	            			size = Integer.parseInt(range.substring(9));
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Color
+	                	if(range.indexOf("Color:")==0) {
+	                		range = range.trim();
+	                		range = range.replace(" ", "");
+	                		int breakLocation  = range.indexOf(",");
+	                		Red =Integer.parseInt(range.substring(6, breakLocation));
+	                		int secondBreakLocation  = range.indexOf(",", breakLocation+1);
+	                		Green =Integer.parseInt(range.substring(breakLocation+1, secondBreakLocation));
+	                		Blue =Integer.parseInt(range.substring(secondBreakLocation+1));
+	                		
+	                		range=br.readLine();
+	                	}
+	            		
+	            		theme.setParagraphFonts(paragraph, fontName, style, size);
+	            		theme.setParagraphColor(paragraph, Red, Green, Blue);
+	            	}
+	            	// About Message
+	            	else if(range.indexOf("aboutMessage")==0) {
+	            		range=br.readLine();
+	            		String fontName = "Dialog";
+	            		int style = 0, size= 16;
+	            		int Red=0, Green=0, Blue=0;
+	            		
+	            		// Font Name
+	            		if(range.indexOf("fontName:")==0) {
+	            			fontName = range.substring(9);
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Style
+	            		if(range.indexOf("fontStyle:")==0) {
+	            			style = Integer.parseInt(range.substring(10));
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Size
+	            		if(range.indexOf("fontSize:")==0) {
+	            			size = Integer.parseInt(range.substring(9));
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Color
+	                	if(range.indexOf("Color:")==0) {
+	                		range = range.trim();
+	                		range = range.replace(" ", "");
+	                		int breakLocation  = range.indexOf(",");
+	                		Red =Integer.parseInt(range.substring(6, breakLocation));
+	                		int secondBreakLocation  = range.indexOf(",", breakLocation+1);
+	                		Green =Integer.parseInt(range.substring(breakLocation+1, secondBreakLocation));
+	                		Blue =Integer.parseInt(range.substring(secondBreakLocation+1));
+	                		
+	                		range=br.readLine();
+	                	}
+	                	theme.setAboutFont(fontName, style, size);
+	            		theme.setAboutColor(Red, Green, Blue);	                	
+	            	}
+	            	// Error Message
+	            	else if(range.indexOf("errorMessage")==0) {
+	            		range=br.readLine();
+	            		String fontName = "Dialog";
+	            		int style = 0, size= 16;
+	            		int Red=0, Green=0, Blue=0;
+	            		
+	            		// Font Name
+	            		if(range.indexOf("fontName:")==0) {
+	            			fontName = range.substring(9);
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Style
+	            		if(range.indexOf("fontStyle:")==0) {
+	            			style = Integer.parseInt(range.substring(10));
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Size
+	            		if(range.indexOf("fontSize:")==0) {
+	            			size = Integer.parseInt(range.substring(9));
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Color
+	                	if(range.indexOf("Color:")==0) {
+	                		range = range.trim();
+	                		range = range.replace(" ", "");
+	                		int breakLocation  = range.indexOf(",");
+	                		Red =Integer.parseInt(range.substring(6, breakLocation));
+	                		int secondBreakLocation  = range.indexOf(",", breakLocation+1);
+	                		Green =Integer.parseInt(range.substring(breakLocation+1, secondBreakLocation));
+	                		Blue =Integer.parseInt(range.substring(secondBreakLocation+1));
+	                		
+	                		range=br.readLine();
+	                	}
+	                	theme.setErrorMessagesFont(fontName, style, size);
+	            		theme.setErrorMessagesColor(Red, Green, Blue);	                	
+	            	}
+	            	// Signature Message
+	            	else if(range.indexOf("signatureMessage")==0) {
+	            		range=br.readLine();
+	            		String fontName = "Dialog";
+	            		int style = 0, size= 16;
+	            		int Red=0, Green=0, Blue=0;
+	            		
+	            		// Font Name
+	            		if(range.indexOf("fontName:")==0) {
+	            			fontName = range.substring(9);
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Style
+	            		if(range.indexOf("fontStyle:")==0) {
+	            			style = Integer.parseInt(range.substring(10));
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Size
+	            		if(range.indexOf("fontSize:")==0) {
+	            			size = Integer.parseInt(range.substring(9));
+	            			range=br.readLine();
+	            		}
+	            		
+	            		// Font Color
+	                	if(range.indexOf("Color:")==0) {
+	                		range = range.trim();
+	                		range = range.replace(" ", "");
+	                		int breakLocation  = range.indexOf(",");
+	                		Red =Integer.parseInt(range.substring(6, breakLocation));
+	                		int secondBreakLocation  = range.indexOf(",", breakLocation+1);
+	                		Green =Integer.parseInt(range.substring(breakLocation+1, secondBreakLocation));
+	                		Blue =Integer.parseInt(range.substring(secondBreakLocation+1));
+	                		
+	                		range=br.readLine();
+	                	}
+	                	theme.setSignatureFont(fontName, style, size);
+	            		theme.setSignatureColor(Red, Green, Blue);	                	
 	            	}
 	            	
 	            	// Else than error occurred
@@ -336,6 +499,7 @@ class Data_Importer {
 	            	
             	}
             	schemes.add(theme);
+            	range=br.readLine();
             	range=br.readLine();
             }
             //Close the stream

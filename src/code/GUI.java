@@ -233,10 +233,10 @@ public class GUI extends Frame implements Printable, ActionListener{
             if("About".equals(command) || applicationState == "About"){
               int x = ww/4;
               int y = (int)(wh*.4);
-              
-              g.setColor(Color.BLACK);
-              g.drawString("About:",25,75);
-              g.drawLine(25,78,60,78);
+              g.setFont(scheme.get(menuThemeSelection).getAboutFont());
+              g.setColor(scheme.get(menuThemeSelection).getAboutColor());
+              g.drawString("About:",25,125);
+              g.drawLine(25,135,60,135);
               
               for(int z=0;z<Jabout.length;z++){
                   if(z==1)g.setColor(Color.RED);
@@ -245,9 +245,11 @@ public class GUI extends Frame implements Printable, ActionListener{
                   else if(z==4)g.setColor(Color.GREEN);
                   g.drawString(Jabout[z], x, y+z*20);
                 }
-              g.setColor(Color.BLUE);
-              g.drawString(jay,ww-100, wh-20);
-              g.setColor(Color.BLACK);
+              
+              // Signature
+      		  g.setFont(scheme.get(menuThemeSelection).getSignatureFont());
+              g.setColor(scheme.get(menuThemeSelection).getSignatureColor());
+              g.drawString(jay,ww-150, wh-20);
             }
             
             // Load Example
@@ -256,22 +258,26 @@ public class GUI extends Frame implements Printable, ActionListener{
 	            	int stringSize = (user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName()).length();
 	            	stringSize= stringSize*25/3;
 	            	
-	                g.setFont(scheme.get(0).getHeadingFonts(1));
-	                g.setColor(scheme.get(0).getHeadingColor(1));
+	                g.setFont(scheme.get(menuThemeSelection).getHeadingFonts(1));
+	                g.setColor(scheme.get(menuThemeSelection).getHeadingColor(1));
 	                g.drawString(user.getFirstName()+" "+user.getMiddleName().substring(0,1)+". "+user.getLastName(), (int)(ww/2-stringSize),100);
 	                
-	                g.setFont(scheme.get(0).getHeadingFonts(3));
-	                g.setColor(scheme.get(0).getParagraphColor(1));
+	                g.setFont(scheme.get(menuThemeSelection).getHeadingFonts(3));
+	                g.setColor(scheme.get(menuThemeSelection).getParagraphColor(1));
 	                g.drawString(user.getWork(0).getCompanyName(), (int)(ww/2-stringSize),450);
 	                g.drawString(user.getWork(1).getCompanyName(), (int)(ww/2-stringSize),475);
 	                g.drawString(user.getEducation(0).getTitle(), (int)(ww/2-stringSize),500);
             	}
             	else{
+            		// Error
+            		g.setFont(scheme.get(menuThemeSelection).getErrorMessagesFont());
+	                g.setColor(scheme.get(menuThemeSelection).getErrorMessagesColor());
             		g.drawString("Error Occured. Data not loaded yet.", (int)(ww*0.37),(int)(wh*0.45));
-	                g.setFont(scheme.get(0).getParagraphFonts(1));
-	                g.setColor(Color.BLUE);
+	                
+            		// Signature
+            		g.setFont(scheme.get(menuThemeSelection).getSignatureFont());
+	                g.setColor(scheme.get(menuThemeSelection).getSignatureColor());
 	                g.drawString(jay,ww-150, wh-20);
-	                g.setColor(Color.BLACK);
             	}
                 frame.setBackground(scheme.get(menuThemeSelection).getBackgroundColor());
             }
@@ -286,11 +292,11 @@ public class GUI extends Frame implements Printable, ActionListener{
 						  
 		//scheme = imports.loadColorScheme();
 		scheme.add(0, new colorScheme("Default"));
-		scheme.add(imports.loadColorScheme().get(0));
-		System.out.println(scheme.size()+"************");
+		ArrayList <colorScheme> schemes = imports.loadColorScheme();
 		
+		for(int x= 0; x<schemes.size();x++)
+			scheme.add(schemes.get(x));
 		
-		scheme.add(new colorScheme("Dawn", 220, 150,150));
 		scheme.add(new colorScheme("Night", 120, 120, 120));
 		scheme.add(new colorScheme("123", 20, 20, 160));
 		scheme.add(new colorScheme("456", 20, 20, 160));
