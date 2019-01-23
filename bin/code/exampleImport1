@@ -44,15 +44,25 @@ description#1:Provide Customers with support
 description#2:Operated the Cash Registers 
 description#3:Restock/Managed Inventory
 positionEnd#1
+positionStart#2
+position:Sales Manager
+startMonth:11
+startYear:2016
+endMonth:6
+endYear:2017
+description#1:Filed Reports
+description#2:Order Inventory 
+description#3:Guided a team of spirited co-workers
+positionEnd#2
 workEnd#1
 workStart#2
 company:Elm Street Real-Estate Agency
 positionStart#1
 position:Real-Estate Agent
-startMonth:1
+startMonth:10
 startYear:2017
 endMonth:3
-endYear:2017
+endYear:2018
 description#1:Provide Customers with support
 positionEnd#1
 workEnd#2

@@ -3,22 +3,22 @@ ColorThemeTitle:Midnight
 backgroundColor: 30, 30, 80
 heading1
 fontName:Dialog
-fontStyle:0
+fontStyle:1
 fontSize:28
 Color: 255, 180, 180
 heading2
 fontName:Dialog
-fontStyle:0
+fontStyle:1
 fontSize:24
 Color: 180, 180, 180
 heading3
 fontName:Dialog
-fontStyle:0
+fontStyle:1
 fontSize:20
 Color: 180, 180, 180
 heading4
 fontName:Dialog
-fontStyle:0
+fontStyle:1
 fontSize:16
 Color: 180, 180, 180
 paragraph1

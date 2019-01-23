@@ -14,7 +14,8 @@ public class GUI extends Frame implements Printable, ActionListener{
 	 * File Parameters
 	 */
 	private static final long serialVersionUID = 1L;
-    private static String []Jabout={"A program that will allow users to easily maniplualate and create resumes"};
+    private static String []Jabout={"A program that will allow users to easily maniplualate and generate Resumes.","","Users will be able to easily focus and readjust their resumes on the fly for",
+    								"any potential job opportunies."};
     private static String command = "", jay="Jason A. Young", applicationState="start";
     private static Frame frame;
     private static User_Account user = new User_Account();
@@ -175,6 +176,12 @@ public class GUI extends Frame implements Printable, ActionListener{
             	repaint();
             }
             else if("Print".equals(command)){
+            	// Temp reset the Frame Background
+            	int themeValueHolder = menuThemeSelection;
+            	menuThemeSelection = 0;
+            	applicationState = "PreviewES";
+            	repaint();
+            	
                 PrinterJob job = PrinterJob.getPrinterJob();
                  job.setPrintable(this);
                  boolean ok = job.printDialog();
@@ -185,6 +192,9 @@ public class GUI extends Frame implements Printable, ActionListener{
                       /* The job did not successfully complete */
                      }
                  }
+                 // Now correct the Frame Background
+                 menuThemeSelection = themeValueHolder;  
+             	 repaint();
             }
             else if("Exit".equals(command))
             	System.exit(0);
@@ -235,20 +245,15 @@ public class GUI extends Frame implements Printable, ActionListener{
             int wh = (int)this.getHeight();
             
             if("About".equals(command) || applicationState == "About"){
-              int x = ww/4;
+              int x = (int)ww/5;
               int y = (int)(wh*.4);
               g.setFont(scheme.get(menuThemeSelection).getAboutFont());
               g.setColor(scheme.get(menuThemeSelection).getAboutColor());
               g.drawString("About:",25,125);
               g.drawLine(25,135,60,135);
               
-              for(int z=0;z<Jabout.length;z++){
-                  if(z==1)g.setColor(Color.RED);
-                  else if(z==2)g.setColor(Color.MAGENTA);
-                  else if(z==3)g.setColor(Color.BLUE);
-                  else if(z==4)g.setColor(Color.GREEN);
+              for(int z=0;z<Jabout.length;z++)
                   g.drawString(Jabout[z], x, y+z*20);
-                }
               
               // Signature
       		  g.setFont(scheme.get(menuThemeSelection).getSignatureFont());
@@ -270,15 +275,36 @@ public class GUI extends Frame implements Printable, ActionListener{
 	                g.setColor(scheme.get(menuThemeSelection).getHeadingColor(3));
 	                g.drawString(user.getWork(0).getCompanyName(), (int)ww/2-100,250);
 	                // Position
+	                g.setFont(scheme.get(menuThemeSelection).getHeadingFonts(4));
+	                g.setColor(scheme.get(menuThemeSelection).getHeadingColor(4));
+	                g.drawString("Position: "+user.getWork(0).getPosition(0).getPositionTitle(), (int)ww/2-100,275);
+	                // Responsibilities
 	                g.setFont(scheme.get(menuThemeSelection).getParagraphFonts(1));
 	                g.setColor(scheme.get(menuThemeSelection).getParagraphColor(1));
-	                g.drawString(user.getWork(0).getPosition(0).getPositionTitle(), (int)ww/2-100,275);
-	                // Responsibilities
-	                g.setFont(scheme.get(menuThemeSelection).getParagraphFonts(2));
-	                g.setColor(scheme.get(menuThemeSelection).getParagraphColor(2));
 	                int numberOfResponsibilities =  user.getWork(0).getPosition(0).getDescriptionSize();
-	                for(int x=0; x<numberOfResponsibilities; x++)
+	                int lastYPosition = 295;
+	                for(int x=0; x<numberOfResponsibilities; x++) {
 	                	g.drawString(user.getWork(0).getPosition(0).getDescription(x), (int)ww/2-60,295+x*20);
+	                	lastYPosition = 295+x*20;
+	                }
+	                // For Position 1
+	                if(user.getWork(0).getPosition(1) != null) {
+	                	// Position
+		                g.setFont(scheme.get(menuThemeSelection).getHeadingFonts(4));
+		                g.setColor(scheme.get(menuThemeSelection).getHeadingColor(4));
+		                g.drawString("Position: "+user.getWork(0).getPosition(0).getPositionTitle(), (int)ww/2-100,lastYPosition+30);
+		                
+		             // Responsibilities
+		                g.setFont(scheme.get(menuThemeSelection).getParagraphFonts(1));
+		                g.setColor(scheme.get(menuThemeSelection).getParagraphColor(1));
+		                numberOfResponsibilities =  user.getWork(0).getPosition(1).getDescriptionSize();
+		                for(int x=0; x<numberOfResponsibilities; x++) {
+		                	g.drawString(user.getWork(0).getPosition(1).getDescription(x), (int)ww/2-60,lastYPosition+50+x*20);
+		                	//lastYPosition = lastYPosition+30+x*20;
+		                }
+	                }
+	                
+	                
             	}
             	else{
             		// Error
@@ -322,9 +348,6 @@ public class GUI extends Frame implements Printable, ActionListener{
             	}
                 frame.setBackground(scheme.get(menuThemeSelection).getBackgroundColor());
             }
-            else if("Print".equals(command)){
-                g.setColor(Color.BLACK);
-            } 
     }
 	
 	public static void loadColorScheme() {
