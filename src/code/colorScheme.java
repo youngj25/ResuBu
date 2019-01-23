@@ -12,7 +12,7 @@ public final class colorScheme{
 	private String colorSchemeName;
 	private Fonts heading1, heading2, heading3, heading4;
 	private Fonts paragraph1, paragraph2, paragraph3;
-	private Fonts signature, about;
+	private Fonts signature, about, errorMessages;
 	private Color backgroundColor;
 	
 	
@@ -25,6 +25,10 @@ public final class colorScheme{
 		// Color Scheme Title
 		colorSchemeName = "Default";
 		
+		// Background Color
+		backgroundColor = new Color(255, 255, 255);
+		
+		
 		// Preset Headings
 		heading1 = new Fonts(new Font("Dialog", 0, 28));
 		heading2 = new Fonts(new Font("Dialog", 0, 24));
@@ -35,9 +39,15 @@ public final class colorScheme{
 		paragraph1 = new Fonts(new Font("Dialog", 0, 14));
 		paragraph2 = new Fonts(new Font("Dialog", 0, 12));
 		paragraph3 = new Fonts(new Font("Dialog", 0, 10));
-
-		// Background Color
-		backgroundColor = new Color(255, 255, 255);
+		
+		// Preset Signature
+		signature = new Fonts(new Font("Dialog", 0, 10));
+				
+		// Preset About
+		about = new Fonts(new Font("Dialog", 0, 16));
+		
+		// Preset Error Messages
+		errorMessages = new Fonts(new Font("Dialog", 0, 16));
 	}	
 	
 	/**
@@ -68,6 +78,9 @@ public final class colorScheme{
 		
 		// Preset About
 		about = new Fonts(new Font("Dialog", 0, 16));
+		
+		// Preset Error Messages
+		errorMessages = new Fonts(new Font("Dialog", 0, 16));
 	}
 	
 	/**
@@ -80,7 +93,6 @@ public final class colorScheme{
 		colorSchemeName = s;
 		// Background Color
 		backgroundColor = new Color(backgroundR, backgroundG, backgroundB);
-		
 		
 		// Preset Headings
 		heading1 = new Fonts(new Font("Dialog", 0, 28));
@@ -98,6 +110,9 @@ public final class colorScheme{
 		
 		// Preset About
 		about = new Fonts(new Font("Dialog", 0, 16));
+		
+		// Preset Error Messages
+		errorMessages = new Fonts(new Font("Dialog", 0, 16));
 	}
 	
 	/**
@@ -172,7 +187,7 @@ public final class colorScheme{
 	 * @param headingNo The number of the wanted paragraph
 	 * @return Returns the specified Heading Font
 	 */
-	public Font getHeadingFonts(int headingNo) {
+	public Fonts getHeadingFonts(int headingNo) {
 		// Sets Heading 1
 		if(headingNo == 1) {
 			return heading1;
@@ -215,9 +230,6 @@ public final class colorScheme{
 		// If paragraphNo is incorrect
 		return null;
 	}
-	
-	
-	
 	
 	/**
 	 * Set Paragraph Fonts
@@ -263,7 +275,7 @@ public final class colorScheme{
 	 * @param paragraphNo The number of the wanted paragraph
 	 * @return Returns the specified Paragraph Font
 	 */
-	public Font getParagraphFonts(int paragraphNo) {
+	public Fonts getParagraphFonts(int paragraphNo) {
 		// Sets Paragraph 1
 		if(paragraphNo == 1) {
 			return paragraph1;
@@ -323,15 +335,24 @@ public final class colorScheme{
 		return backgroundColor;
 	}
 	
+	public void setAboutFont(String fontName, int fontStyle, int fontSize) {
+		about = new Fonts(new Font(fontName, fontStyle, fontSize));
+	}
 	
 	public void setAboutColor(int R, int G, int B) {
 		about.setFontColor( R, G, B);
 	}
 	
-	
+	public Fonts getAboutFont() {
+		return about;
+	}
 	
 	public Color getAboutColor() {
 		return  about.getFontColor();
+	}
+	
+	public void setSignatureFont(String fontName, int fontStyle, int fontSize) {
+		signature = new Fonts(new Font(fontName, fontStyle, fontSize));
 	}
 	
 	public void setSignatureColor(int R, int G, int B) {
@@ -340,6 +361,26 @@ public final class colorScheme{
 	
 	public Color getSignatureColor() {
 		return signature.getFontColor();
+	}
+	
+	public Fonts getSignatureFont() {
+		return signature;
+	}
+	
+	public void setErrorMessagesFont(String fontName, int fontStyle, int fontSize) {
+		errorMessages = new Fonts(new Font(fontName, fontStyle, fontSize));
+	}
+	
+	public void setErrorMessagesColor(int R, int G, int B) {
+		errorMessages.setFontColor( R, G, B);
+	}
+	
+	public Color getErrorMessagesColor() {
+		return errorMessages.getFontColor();
+	}
+	
+	public Fonts getErrorMessagesFont() {
+		return errorMessages;
 	}
 	
 	public String toString() {
