@@ -14,11 +14,8 @@ public final class colorScheme{
 	private Fonts paragraph1, paragraph2, paragraph3;
 	private Fonts signature, about, errorMessages;
 	private Color backgroundColor;
-	
-	
 
 	/**
-	 * Color Scheme
 	 * The Color Scheme Constructors
 	 */
 	public colorScheme() {
@@ -51,7 +48,6 @@ public final class colorScheme{
 	}	
 	
 	/**
-	 * Color Scheme
 	 * The Color Scheme Constructors
 	 * @param s The Title of the Color Scheme
 	 */
@@ -84,7 +80,6 @@ public final class colorScheme{
 	}
 	
 	/**
-	 * Color Scheme
 	 * The Color Scheme Constructors
 	 * @param s The Title of the Color Scheme
 	 */
@@ -116,7 +111,6 @@ public final class colorScheme{
 	}
 	
 	/**
-	 * Set Color Scheme Title
 	 * Set's the Color Scheme Title with the given String
 	 * @param s The New Color Scheme Title
 	 */
@@ -134,7 +128,6 @@ public final class colorScheme{
 	}	
 
 	/**
-	 * Set Heading Fonts
 	 * Sets the Font's name, style and size
 	 * @param headingNo Which Heading font to set
 	 * @param fontName The Font name
@@ -161,7 +154,13 @@ public final class colorScheme{
 		}
 	}
 	
-	
+	/**
+	 * This method changes the heading color of the headingNo# Heading to the R, G, B values
+	 * @param headingNo The number Heading you would like to change
+	 * @param R The Red value of the new Color
+	 * @param G The Green value of the new Color
+	 * @param B The Blue value of the new Color
+	 */
 	public void setHeadingColor(int headingNo, int R, int G, int B) {
 		// Sets Heading 1
 		if(headingNo == 1) {
@@ -183,7 +182,7 @@ public final class colorScheme{
 	
 
 	/**
-	 * Get Heading Fonts
+	 * Returns the specified Heading Font based on the headingNo
 	 * @param headingNo The number of the wanted paragraph
 	 * @return Returns the specified Heading Font
 	 */
@@ -209,7 +208,12 @@ public final class colorScheme{
 		return null;
 	}
 	
-	
+	/**
+	 * Get the Heading Color of the Specified Heading, using the headingNo.
+	 * For example headingNo = 1, returns the color for Heading 1
+	 * @param headingNo Specifies which heading color to return.
+	 * @return The specified heading color
+	 */
 	public Color getHeadingColor(int headingNo) {
 		// Sets Heading 1
 		if(headingNo == 1) {
@@ -232,7 +236,6 @@ public final class colorScheme{
 	}
 	
 	/**
-	 * Set Paragraph Fonts
 	 * Sets the Font's name, style and size
 	 * @param paragraphNo Which paragraph font to set
 	 * @param fontName The Font name
@@ -254,7 +257,13 @@ public final class colorScheme{
 		}
 	}
 	
-	
+	/**
+	 * Sets the Paragraph color of the specified paragraph
+	 * @param paragraphNo Specifies which Paragraph you want to set the color for
+	 * @param R The Red Value of the new Color
+	 * @param G The Green Value of the new Color
+	 * @param B The Blue Value of the new Color
+	 */
 	public void setParagraphColor(int paragraphNo, int R, int G, int B) {
 		// Sets Paragraph 1
 		if(paragraphNo == 1) {
@@ -335,83 +344,165 @@ public final class colorScheme{
 		return backgroundColor;
 	}
 	
+	/**
+	 * Sets the Font for the About Messages
+	 * @param fontName The Font Name
+	 * @param fontStyle The Font Style, 0 for Plain
+	 * @param fontSize The Font Size
+	 */
 	public void setAboutFont(String fontName, int fontStyle, int fontSize) {
 		about = new Fonts(new Font(fontName, fontStyle, fontSize));
 	}
 	
+	/**
+	 * Sets the Color of the About Messages 
+	 * @param R The Red Value of the new Color
+	 * @param G The Green Value of the new Color
+	 * @param B The Blue Value of the new Color
+	 */
 	public void setAboutColor(int R, int G, int B) {
 		about.setFontColor( R, G, B);
 	}
 	
+	/**
+	 * Returns the Fonts of the About Messages
+	 * @return The Fonts of the About Messages
+	 */
 	public Fonts getAboutFont() {
 		return about;
 	}
 	
+	/**
+	 * Returns the Color of the About Messages
+	 * @return The Color of the About Messages
+	 */
 	public Color getAboutColor() {
 		return  about.getFontColor();
 	}
 	
+	/**
+	 * Set the Font of the Signature Messages
+	 * @param fontName The Font Name
+	 * @param fontStyle The Font Style, as an example. Style 0 is plain
+	 * @param fontSize The Font Size
+	 */
 	public void setSignatureFont(String fontName, int fontStyle, int fontSize) {
 		signature = new Fonts(new Font(fontName, fontStyle, fontSize));
 	}
 	
+	/**
+	 * Sets the Color of the Signature Messages
+	 * @param R The Red Value of the New Color
+	 * @param G The Green Value of the New Color
+	 * @param B The Blue Value of the New Color
+	 */
 	public void setSignatureColor(int R, int G, int B) {
 		signature.setFontColor( R, G, B);
 	}
 	
+	/**
+	 * Returns the Color of the Signature Message
+	 * @return The Color of the Signature Message
+	 */
 	public Color getSignatureColor() {
 		return signature.getFontColor();
 	}
 	
+	/**
+	 * Returns the Font of the Signature Message
+	 * @return 
+	 */
 	public Fonts getSignatureFont() {
 		return signature;
 	}
 	
+	/**
+	 * Sets the Font of the Error Message
+	 * @param fontName The Font Name
+	 * @param fontStyle The Font Style. Example Font Style 0, equals plain
+	 * @param fontSize The Font Size
+	 */
 	public void setErrorMessagesFont(String fontName, int fontStyle, int fontSize) {
 		errorMessages = new Fonts(new Font(fontName, fontStyle, fontSize));
 	}
 	
+	/**
+	 * Sets the Color of the Error Messages
+	 * @param R The Red Value of the New Color
+	 * @param G The Green Value of the New Color
+	 * @param B The Blue Value of the New Color
+	 */
 	public void setErrorMessagesColor(int R, int G, int B) {
 		errorMessages.setFontColor( R, G, B);
 	}
 	
+	/**
+	 * Returns the  Error Messages Color 
+	 * @return The Error Messages Color
+	 */
 	public Color getErrorMessagesColor() {
 		return errorMessages.getFontColor();
 	}
 	
+	/**
+	 * Returns the Font of the Error Messages
+	 * @return The Font of the Error Messages
+	 */
 	public Fonts getErrorMessagesFont() {
 		return errorMessages;
 	}
 	
+	/**
+	 * Returns the ColorScheme Name
+	 */
 	public String toString() {
 		return colorSchemeName;		
 	}
-	
 }
 
 /**
- * Fonts Class
+ * Fonts extends Font and adds Color option such that Fonts style can have their own Fonts Color
  * @author Jason
- * Fonts extends Font and adds color option
  */
 class Fonts extends Font{
 	private Color fontColor;
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Fonts Constructor
+	 * @param arg0
+	 */
 	protected Fonts(Font arg0) {
 		super(arg0);
 		fontColor = new Color(0, 0, 0);
 	}	
 	
+	/**
+	 * Fonts Constructor
+	 * @param arg0 The Original Font Variable
+	 * @param R The Red Value of the New Color
+	 * @param G The Green Value of the New Color
+	 * @param B The Blue Value of the New Color
+	 */
 	protected Fonts(Font arg0,int R, int G, int B) {
 		super(arg0);
 		fontColor = new Color(R, G, B);
 	}
 	
+	/**
+	 * Sets the Font Color
+	 * @param R The Red Value of the New Color
+ 	 * @param G The Green Value of the New Color
+	 * @param B The Blue Value of the New Color
+	 */
 	public void setFontColor(int R, int G, int B) {
 		fontColor = new Color(R, G, B);
 	}
 	
+	/**
+	 * Returns the Font Color
+	 * @return The Font Color
+	 */
 	public Color getFontColor() {
 		return fontColor;
 	}
