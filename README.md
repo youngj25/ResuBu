@@ -19,6 +19,7 @@ Users will be able to pick and choose which work experiences they would like to 
 
 ### Features
  - Simple Resume Management and Tailoring
+ - Various Color Schemes for users to choose
 
 
 ### How to use the Application
