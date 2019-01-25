@@ -15,4 +15,24 @@ The main foucs of this application will be assisting my little brother with gene
 #### Example/Elaboration
 For this example, lets say a person had previously worked as a plumber, computer technican, database admin, electrician, clinical nurse, store clerk and an office manager. Obviously, this person has a wide span of skills, but depending on the job that the person is applying for, some experiences trump others. If this person attempted to apply for a job as a software developer, being plumber and clinical nurse would most definitely not be the most helpful for this role. But at the same time. you want to ensure that the descriptions you had listed for previous resumes are kept and ready in case you need it for another role. This is the problem that this application will be addressing. 
 
-Users will be able to pick and choose which work experiences they would like to include in their resumes. Regardless if they choose to include a description or not, the information will be kept for next time so that the user doesn't have to necessarily maintain their resume information, but simply add to it. 
+Users will be able to pick and choose which work experiences they would like to include in their resumes. Regardless if they choose to include a description or not, the information will be kept for next time so that the user doesn't have to necessarily maintain their resume information, but simply add to it. The user will be able to create a base resume, or default resume that contains the information that will most likely always be on their resumes (name, address, phone number, website link). Then the user will be able to create different resumes based off of that and save it as a different resume 'scheme'. 
+
+### Features
+ - Simple Resume Management and Tailoring
+
+
+### How to use the Application
+This application can be used in two different ways.
+
+The first and simplest way will be to download the file and click on the Jar file inside the folder. The application will open up and you'll be ready to start. <b> Note to self add Jar. </b>
+
+The second way would be to install Java. <b> Note to self add link to Java site.</b> Then once Java is finished installing, go to your command prompt and type 'javac -version'. This should output the java version of your complier. If you get an error redo the first step, Java is not installed.
+
+
+
+
+### Issues
+One future issue will be enabling text recognition for the resumes. Currently when the application is printed as a pdf file, the pdf sees the resume as an image. Of course Adobe Reader has tools in correct this, but it would be nice to have this taken care of immediately by the application it self. 
+
+
+
